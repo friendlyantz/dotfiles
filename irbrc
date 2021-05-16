@@ -1,6 +1,8 @@
 begin
   require 'rubygems'
   require 'pry'
+  require "awesome_print" 
+  AwesomePrint.irb!
 rescue LoadError
 end
 

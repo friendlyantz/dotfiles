@@ -12,7 +12,7 @@
 [core]
   pager = less -FRSX
 	# editor = '/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl' -n -w
-  editor = vscode
+  editor = vi
   # editor = subl -n -w  >/dev/null 2>&1
 
 [alias]
@@ -51,3 +51,33 @@
 [user]
 	email = panteleev23@gmail.com
 	name = Anton Panteleev
+	signingkey = 425D1A1149F49BD9
+[merge]
+	tool = vscode
+[mergetool "vscode"]
+	cmd = "code --wait "
+[diff]
+	tool = vscode
+[difftool "vscode"]
+	cmd = "code --wait --diff  "
+[gpg]
+	program = gpg
+[commit]
+	gpgsign = true
+
+
+[pager]
+    diff = delta
+    log = delta
+    reflog = delta
+    show = delta
+
+[delta]
+    plus-style = "syntax #012800"
+    minus-style = "syntax #340001"
+    syntax-theme = Monokai Extended
+    navigate = true
+    side-by-side = true
+
+[interactive]
+    diffFilter = delta --color-only

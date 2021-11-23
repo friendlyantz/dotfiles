@@ -11,9 +11,7 @@
 
 [core]
   pager = less -FRSX
-	# editor = '/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl' -n -w
   editor = vi
-  # editor = subl -n -w  >/dev/null 2>&1
 
 [alias]
   co = checkout
@@ -51,7 +49,7 @@
 [user]
 	email = panteleev23@gmail.com
 	name = Anton Panteleev
-	signingkey = 425D1A1149F49BD9
+	signingkey = F06A7B560D151340
 [merge]
 	tool = vscode
 [mergetool "vscode"]

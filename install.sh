@@ -12,13 +12,26 @@ backup() {
 for name in *; do
   if [ ! -d "$name" ]; then
     target="$HOME/.$name"
-    if [[ ! "$name" =~ '\.sh$' ]] && [ "$name" != 'README.md' ] && [[ ! "$name" =~ '\.sublime-settings$' ]]; then
+    if [[ ! "$name" =~ '\.sh$' ]] && [ "$name" != 'README.md' ] && [[ ! "$name" =~ '\.config$' ]]; then
       backup $target
 
       if [ ! -e "$target" ]; then
         echo "-----> Symlinking your new $target"
         ln -s "$PWD/$name" "$target"
       fi
+    fi
+  fi
+done
+
+# links specific .config files
+for name in .config/*; do
+  if [ -d "$name" ]; then
+    target="$HOME/$name"
+    backup $target
+
+    if [ ! -e "$target" ]; then
+      echo "-----> Symlinking your new $target"
+      ln -s "$PWD/$name" "$target"
     fi
   fi
 done

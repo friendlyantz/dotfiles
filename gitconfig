@@ -62,6 +62,7 @@
 	program = gpg
 [commit]
 	gpgsign = true
+	template = /Users/friendlyantz/.gitmessage
 
 
 [pager]

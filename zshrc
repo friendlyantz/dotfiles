@@ -14,7 +14,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # ZSH_THEME="robbyrussell"
 
 # Useful oh-my-zsh plugins for Le Wagon bootcamps
-plugins=(git gitfast last-working-dir common-aliases sublime zsh-syntax-highlighting history-substring-search)
+plugins=(git gitfast last-working-dir common-aliases zsh-syntax-highlighting history-substring-search)
 
 # (macOS-only) Prevent Homebrew from reporting - https://github.com/Homebrew/brew/blob/master/share/doc/homebrew/Analytics.md
 export HOMEBREW_NO_ANALYTICS=1
@@ -41,8 +41,8 @@ export NVM_DIR="$HOME/.nvm"
 export PATH="./bin:./node_modules/.bin:${PATH}:/usr/local/sbin"
 
 # Load 'lewagon' virtualenv for the Data Bootcamp. You can comment these 2 lines to disable this behavior.
-export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-pyenv activate lewagon 2>/dev/null && echo "🐍 Loading 'lewagon' virtualenv"
+# export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+# pyenv activate lewagon 2>/dev/null && echo "🐍 Loading 'lewagon' virtualenv"
 
 # Store your own aliases in the ~/.aliases file and load the here.
 [[ -f "$HOME/.aliases" ]] && source "$HOME/.aliases"
@@ -50,8 +50,6 @@ pyenv activate lewagon 2>/dev/null && echo "🐍 Loading 'lewagon' virtualenv"
 # Encoding stuff for the terminal
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
-# export BUNDLER_EDITOR="'/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl' -a"
-export BUNDLER_EDITOR="subl $@ >/dev/null 2>&1 -a"
 export GPG_TTY=$TTY
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
@@ -59,11 +57,18 @@ export GPG_TTY=$TTY
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-export BUNDLER_EDITOR="'/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl' -a"
+export BUNDLER_EDITOR=code
+export EDITOR=vi
 
 . /opt/homebrew/opt/asdf/libexec/asdf.sh
 
-export PATH="/opt/homebrew/opt/postgresql@12/bin:$PATH"
-export LDFLAGS="-L/opt/homebrew/opt/postgresql@12/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/postgresql@12/include"
-export PKG_CONFIG_PATH="/opt/homebrew/opt/postgresql@12/lib/pkgconfig"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+alias pgstart='pg_ctl -D tmp/postgres -l tmp/postgres/logfile start || echo "pg was probably running"'
+alias pgstop='pg_ctl -D tmp/postgres -l tmp/postgres/logfile stop || echo "pg was probably stopped"'
+alias msfconsole='/opt/metasploit-framework/bin/msfconsole'
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export PATH="/opt/homebrew/opt/kubernetes-cli@1.22/bin:$PATH"
+set -o vi
+

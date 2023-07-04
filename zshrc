@@ -3,17 +3,12 @@
 # confirmations, etc.) must go above this block; everything else may go below.
 ZSH_DISABLE_COMPFIX="true" # for bypassing RT warnings
 
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 ZSH=$HOME/.oh-my-zsh
 
-# You can change the theme with another one from https://github.com/robbyrussell/oh-my-zsh/wiki/themes
 ZSH_THEME="powerlevel10k/powerlevel10k"
 # ZSH_THEME="robbyrussell"
 
-# Useful oh-my-zsh plugins for Le Wagon bootcamps
+# Useful oh-my-zsh plugins
 plugins=(git gitfast last-working-dir common-aliases zsh-syntax-highlighting history-substring-search)
 
 # (macOS-only) Prevent Homebrew from reporting - https://github.com/Homebrew/brew/blob/master/share/doc/homebrew/Analytics.md
@@ -60,8 +55,6 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 export BUNDLER_EDITOR=code
 export EDITOR=vi
 
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 alias pgstart='pg_ctl -D tmp/postgres -l tmp/postgres/logfile start || echo "pg was probably running"'
@@ -72,3 +65,12 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="/opt/homebrew/opt/kubernetes-cli@1.22/bin:$PATH"
 set -o vi
 
+export BUNDLER_EDITOR="subl $@ >/dev/null 2>&1 -a"
+
+. "$HOME/.asdf/asdf.sh"
+# append completions to fpath
+fpath=(${ASDF_DIR}/completions $fpath)
+# initialise completions with ZSH's compinit
+autoload -Uz compinit && compinit
+
+export BETTER_ERRORS_EDITOR="code --wait"

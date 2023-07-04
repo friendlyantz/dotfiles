@@ -11,7 +11,7 @@
 
 [core]
   pager = less -FRSX
-  editor = vi
+	editor = vi
 
 [alias]
   co = checkout
@@ -48,8 +48,8 @@
   mergeoptions = --no-edit
 [user]
 	email = friendlyantz@pm.me
-	name = Anton Panteleev
-	signingkey = F06A7B560D151340
+	name = friendlyantz
+	signingkey = 08AF1A8A6D745F28
 [merge]
 	tool = vscode
 [mergetool "vscode"]
@@ -62,9 +62,7 @@
 	program = gpg
 [commit]
 	gpgsign = true
-	template = /Users/friendlyantz/.gitmessage
-
-
+	template = ~/.gitmessage
 [pager]
     diff = delta
     log = delta

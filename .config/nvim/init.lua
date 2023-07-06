@@ -1,2 +1,3 @@
 require('friendlyantz')
-print("YOLOOOOO!config!!")
+
+print("YOLOOOOO from config!!!")

@@ -1,1 +1,2 @@
-print("YOLOOOOO!!!")
+require('friendlyantz')
+print("YOLOOOOO!config!!")

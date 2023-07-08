@@ -27,6 +27,7 @@ return require('packer').startup(function(use)
   use('ThePrimeagen/vim-be-good')
   use('mbbill/undotree')
   use('tpope/vim-fugitive')
+  use('tpope/vim-commentary')
 
   use {
     'VonHeikemen/lsp-zero.nvim',

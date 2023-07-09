@@ -1,6 +1,13 @@
 -- This file can be loaded by calling `lua require('plugins')` from your init.vim
 
 -- Only required if you have packer configured as `opt`
+
+-- USEFUL PACKAGES from great engineers
+-- GigaChad's packages
+-- https://github.com/ThePrimeagen/init.lua/blob/master/lua/theprimeagen/packer.lua
+
+-- Tom Dalling's packages
+-- https://github.com/tomdalling/config/blob/main/nvim/init.lua
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)

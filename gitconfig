@@ -11,7 +11,7 @@
 
 [core]
   pager = less -FRSX
-	editor = vi
+    editor = vim
 
 [alias]
   co = checkout

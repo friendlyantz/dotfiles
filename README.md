@@ -21,3 +21,14 @@ asdf global ripgrep latest
 
 - [oh-my-zsh](http://ohmyz.sh/)
 - [git](https://git-scm.com/)
+
+## Fonts
+https://www.jetbrains.com/lp/mono/
+
+```sh
+unzip DOWNLOADED_FONT.zip
+mkdir -p ~/.fonts
+mv <FILEPATH_OF_FONT> ~/.fonts
+fc-cache -f -v
+
+ ```

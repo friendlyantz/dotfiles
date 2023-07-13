@@ -10,4 +10,6 @@ alias rch='rspec $(git ls-files --modified --others spec)'
 alias vim='nvim'
 alias vi='nvim'
 alias v='nvim .'
+alias py='python3'
+alias python='python3'
 

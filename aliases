@@ -17,3 +17,10 @@ alias python='python3'
 
 alias gcs='git commit -S --verbose'
 
+alias hmm="echo \'¯\_(ツ)_/¯'"
+
+alias doc="cat <<- EOF
+¯\_(ツ)_/¯ line 1
+¯\_(ツ)_/¯ line 2
+EOF
+"

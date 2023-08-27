@@ -72,7 +72,7 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="/opt/homebrew/opt/kubernetes-cli@1.22/bin:$PATH"
 set -o vi
 
-export BUNDLER_EDITOR="subl $@ >/dev/null 2>&1 -a"
+export BUNDLER_EDITOR="code $@"
 
 . "$HOME/.asdf/asdf.sh"
 # append completions to fpath

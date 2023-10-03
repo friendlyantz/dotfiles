@@ -47,9 +47,9 @@
 [branch "master"]
   mergeoptions = --no-edit
 [user]
-	email = friendlyantz@pm.me
+	email = 70934030+friendlyantz@users.noreply.github.com
 	name = friendlyantz
-	signingkey = 08AF1A8A6D745F28
+	signingkey = A87BA807E18ED14B
 [merge]
 	tool = vscode
 [mergetool "vscode"]

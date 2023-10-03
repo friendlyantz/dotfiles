@@ -8,7 +8,6 @@ alias serve='ruby -run -e httpd . -p 8000' # Or python -m SimpleHTTPServer :)
 alias rch='rspec $(git ls-files --modified --others spec)'
 
 alias vim='nvim'
-alias vi='nvim'
 alias v='nvim .'
 
 alias py='python3'

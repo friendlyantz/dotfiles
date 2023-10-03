@@ -55,6 +55,10 @@ brew-iterm:
 zsh:
 	@sh -c "$$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
+.PHONY: zsh-syntax-highlighting
+zsh-syntax-highlighting:
+	@git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+
 .PHONY: gh-cli
 gh-cli:
 	gh auth login -s 'user:email' -w
@@ -115,6 +119,7 @@ usage:
 	@echo "${YELLOW}make brew-zoom${NC}                brew zoom"
 	@echo
 	@echo "${YELLOW}make zsh${NC}                      install ZSH"
+	@echo "${YELLOW}make zsh-syntax-highlighting${NC}  install ZSH syntax-highlighting"
 	@echo
 	@echo "${YELLOW}make gh-cli${NC}                   login GitHub CLI"
 	@echo

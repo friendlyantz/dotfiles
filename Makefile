@@ -31,7 +31,6 @@ brew-extra:
 	brew upgrade bat || brew install bat
 	brew upgrade gpg-suite-no-mail ||brew install --cask gpg-suite-no-mail
 	brew upgrade git-delta ||brew install git-delta
-	brew upgrade asdf ||brew install asdf
 
 .PHONY: brew-neovim
 brew-neovim:
@@ -84,6 +83,12 @@ dotfiles-git:
 zsh-powershell10k:
 	git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 
+.PHONY: asdf-install
+asdf-install:
+	git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.13.1 || echo "asdf already installed"
+	source ~/.asdf/asdf.sh
+	asdf update
+
 .PHONY: asdf-ruby
 asdf-ruby:
 	asdf plugin add ruby
@@ -127,6 +132,7 @@ usage:
 	@echo "${YELLOW}make dotfiles-install${NC}         zsh install.sh"
 	@echo "${YELLOW}make zsh-powershell10k${NC}        zsh-powershell10k(ensure to use UNICODE) OR to retry: 'p10k configure'"
 	@echo
+	@echo "${YELLOW}make asdf-install${NC}             install ASDF package manager"
 	@echo "${YELLOW}make asdf-ruby${NC}                install Ruby via asdf"
 	@echo "${YELLOW}make gem-essentials${NC}           install Ruby essential gems"
 	@echo

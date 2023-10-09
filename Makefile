@@ -99,13 +99,36 @@ asdf-ruby:
 	asdf install ruby latest
 	asdf global ruby latest
 
-.PHONY: gem-essentials
-gem-essentials:
-	gem install colorize faker http pry-byebug rake rails rest-client rspec rubocop-performance sqlite3
+.PHONY: ruby-gem-essentials
+ruby-gem-essentials:
+	gem install colorize faker http pry-byebug rake rails rest-client rspec rubocop-performance sqlite3 bundler
 
 .PHONY: readmore
 readmore:
 	open https://github.com/lewagon/setup/blob/master/macos.md#macos-settings
+
+.PHONY: mac-settings
+mac-settings:
+	# Save screenshots to the Desktop (or elsewhere)
+	defaults write com.apple.screencapture location "${HOME}/Desktop"
+	# Expanding the save panel by default
+	defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+	defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
+	defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
+	# Set sidebar icon size to medium
+	defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 2
+	# Set highlight color to green
+	defaults write NSGlobalDomain AppleHighlightColor -string "0.764700 0.976500 0.568600"
+	# Always show scrollbars
+	defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
+	# Save to disk (not to iCloud) by default
+	defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
+	# Disable the “Are you sure you want to open this application?” dialog
+	defaults write com.apple.LaunchServices LSQuarantine -bool false
+	# Enable highlight hover effect for the grid view of a stack (Dock)
+	defaults write com.apple.dock mouse-over-hilite-stack -bool true
+	# Set the icon size of Dock items to 36 pixels
+	defaults write com.apple.dock tilesize -int 36
 
 
 .PHONY: usage
@@ -139,8 +162,9 @@ usage:
 	@echo
 	@echo "${YELLOW}make asdf-install${NC}             install ASDF package manager"
 	@echo "${YELLOW}make asdf-ruby${NC}                install Ruby via asdf"
-	@echo "${YELLOW}make gem-essentials${NC}           install Ruby essential gems"
+	@echo "${YELLOW}make ruby-gem-essentials${NC}           install Ruby essential gems"
 	@echo
 	@echo "${YELLOW}make readmore${NC}                 further options tweaks and scripts"
+	@echo "${YELLOW}make mac-settings${NC}           	 sane mac settings scripts"
 	@echo
 

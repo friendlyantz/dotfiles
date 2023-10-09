@@ -148,7 +148,6 @@ usage:
 	@echo
 	@echo "${RED}First things first:${NC}"
 	@echo "	Browsers Install: FF, Brave, Chrome, etc"
-	@echo "	AppStore: Magnet, VPN, etc"
 	@echo "	VPN, Pass Manager"
 	@echo "Getting started as per https://github.com/lewagon/setup/blob/master/macos.md"
 	@echo

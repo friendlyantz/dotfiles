@@ -50,6 +50,10 @@ brew-vscode:
 brew-discord:
 	brew install --cask discord
 
+.PHONY: brew-tuple
+brew-tuple:
+	brew install --cask tuple
+
 .PHONY: brew-zoom
 brew-zoom:
 	brew install --cask zoom
@@ -149,6 +153,7 @@ usage:
 	@echo "${YELLOW}make brew-neovim${NC}              brew neovim"
 	@echo "${YELLOW}make brew-vscode${NC}              brew vscode"
 	@echo "${YELLOW}make brew-discord${NC}             brew discord"
+	@echo "${YELLOW}make brew-tuple${NC}               brew tuple"
 	@echo "${YELLOW}make brew-zoom${NC}                brew zoom"
 	@echo
 	@echo "${YELLOW}make zsh${NC}                      install ZSH"

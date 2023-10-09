@@ -36,6 +36,12 @@ brew-extra:
 brew-iterm:
 	brew install --cask iterm2
 
+.PHONY: brew-fzf
+brew-fzf:
+	brew install fzf
+	# To install useful key bindings and fuzzy completion:
+	$(brew --prefix)/opt/fzf/install
+
 .PHONY: brew-neovim
 brew-neovim:
 	brew install neovim
@@ -150,6 +156,7 @@ usage:
 	@echo "${YELLOW}make brew-essentials${NC}          brew essential apps"
 	@echo "${YELLOW}make brew-extra${NC}               brew asdf, git-delta, batcat"
 	@echo "${YELLOW}make brew-iterm${NC}               brew iTerm2"
+	@echo "${YELLOW}make brew-fzf${NC}                 brew fuzzy reverse search of commands"
 	@echo "${YELLOW}make brew-neovim${NC}              brew neovim"
 	@echo "${YELLOW}make brew-vscode${NC}              brew vscode"
 	@echo "${YELLOW}make brew-discord${NC}             brew discord"

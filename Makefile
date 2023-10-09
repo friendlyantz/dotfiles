@@ -32,6 +32,10 @@ brew-extra:
 	brew upgrade gpg-suite-no-mail ||brew install --cask gpg-suite-no-mail
 	brew upgrade git-delta ||brew install git-delta
 
+.PHONY: brew-iterm
+brew-iterm:
+	brew install --cask iterm2
+
 .PHONY: brew-neovim
 brew-neovim:
 	brew install neovim
@@ -42,13 +46,13 @@ brew-vscode:
 	@echo
 	@echo "run ${YELLOW}code${NC} to check if VS code was installed correctly"
 
+.PHONY: brew-discord
+brew-discord:
+	brew install --cask discord
+
 .PHONY: brew-zoom
 brew-zoom:
 	brew install --cask zoom
-
-.PHONY: brew-iterm
-brew-iterm:
-	brew install --cask iterm2
 
 .PHONY: zsh
 zsh:
@@ -121,6 +125,7 @@ usage:
 	@echo "${YELLOW}make brew-iterm${NC}               brew iTerm2"
 	@echo "${YELLOW}make brew-neovim${NC}              brew neovim"
 	@echo "${YELLOW}make brew-vscode${NC}              brew vscode"
+	@echo "${YELLOW}make brew-discord${NC}             brew discord"
 	@echo "${YELLOW}make brew-zoom${NC}                brew zoom"
 	@echo
 	@echo "${YELLOW}make zsh${NC}                      install ZSH"

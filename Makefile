@@ -71,6 +71,16 @@ brew-tuple:
 brew-zoom:
 	brew install --cask zoom
 
+.PHONY: brew-messengers
+brew-messengers:
+	brew install --cask signal
+	brew install --cask telegram
+
+.PHONY: brew-clouddrives
+brew-clouddrives:
+	brew install --cask nextcloud
+	brew install --cask kdrive
+
 .PHONY: zsh
 zsh:
 	@sh -c "$$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -170,6 +180,8 @@ usage:
 	@echo "${YELLOW}make brew-discord${NC}             brew discord"
 	@echo "${YELLOW}make brew-tuple${NC}               brew tuple"
 	@echo "${YELLOW}make brew-zoom${NC}                brew zoom"
+	@echo "${YELLOW}make brew-messengers${NC}          brew messengers: Signal, Telegram"
+	@echo "${YELLOW}make brew-clouddrives${NC}         brew cloud drives: NextCloud, kDrive"
 	@echo
 	@echo "${YELLOW}make zsh${NC}                      install ZSH"
 	@echo "${YELLOW}make zsh-syntax-highlighting${NC}  install ZSH syntax-highlighting"

@@ -32,6 +32,13 @@ brew-extra:
 	brew upgrade gpg-suite-no-mail ||brew install --cask gpg-suite-no-mail
 	brew upgrade git-delta ||brew install git-delta
 
+.PHONY: brew-browsers
+brew-browsers:
+	brew install --cask firefox
+	brew install --cask google-chrome
+	brew install --cask brave-browser
+	brew install --cask tor-browser
+
 .PHONY: brew-iterm
 brew-iterm:
 	brew install --cask iterm2
@@ -147,11 +154,13 @@ usage:
 	@echo "Hi ${GREEN}${USER}!${NC} Welcome to ${RED}${CURRENT_DIR}${NC}"
 	@echo
 	@echo "${RED}First things first:${NC}"
-	@echo "	Browsers Install: FF, Brave, Chrome, etc"
-	@echo "	VPN, Pass Manager"
+	@echo "  VPN, Pass Manager(can be via AppStore or package manager, AppStore can provide better integrations on Macs)"
+	@echo "  packackge manager for macs - Homebrew"
+	@echo "  Browsers Install(ideally via package manager): FF, Brave, Chrome, etc"
 	@echo "Getting started as per https://github.com/lewagon/setup/blob/master/macos.md"
 	@echo
 	@echo "${YELLOW}make brew-install${NC}             install brew and xcode"
+	@echo "${YELLOW}make brew-browsers${NC}            brew web-browsers: FF, Chrome, Brace"
 	@echo "${YELLOW}make brew-essentials${NC}          brew essential apps"
 	@echo "${YELLOW}make brew-extra${NC}               brew asdf, git-delta, batcat"
 	@echo "${YELLOW}make brew-iterm${NC}               brew iTerm2"
@@ -176,6 +185,6 @@ usage:
 	@echo "${YELLOW}make ruby-gem-essentials${NC}           install Ruby essential gems"
 	@echo
 	@echo "${YELLOW}make readmore${NC}                 further options tweaks and scripts"
-	@echo "${YELLOW}make mac-settings${NC}           	 sane mac settings scripts"
+	@echo "${YELLOW}make mac-settings${NC}             sane mac settings scripts"
 	@echo
 

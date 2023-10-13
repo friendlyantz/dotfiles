@@ -29,8 +29,8 @@ brew-essentials:
 .PHONY: brew-extra
 brew-extra:
 	brew upgrade bat || brew install bat
-	brew upgrade gpg-suite-no-mail ||brew install --cask gpg-suite-no-mail
-	brew upgrade git-delta ||brew install git-delta
+	brew upgrade gpg-suite-no-mail || brew install --cask gpg-suite-no-mail
+	brew upgrade git-delta || brew install git-delta
 
 .PHONY: brew-browsers
 brew-browsers:
@@ -48,6 +48,10 @@ brew-fzf:
 	brew install fzf
 	# To install useful key bindings and fuzzy completion:
 	$(brew --prefix)/opt/fzf/install
+
+.PHONY: brew-imgcat
+brew-imgcat:
+	brew install eddieantonio/eddieantonio/imgcat
 
 .PHONY: brew-neovim
 brew-neovim:
@@ -186,6 +190,7 @@ usage:
 	@echo "${YELLOW}make brew-extra${NC}               brew asdf, git-delta, batcat"
 	@echo "${YELLOW}make brew-iterm${NC}               brew iTerm2"
 	@echo "${YELLOW}make brew-fzf${NC}                 brew fuzzy reverse search of commands"
+	@echo "${YELLOW}make brew-imgcat${NC}              brew image cat"
 	@echo "${YELLOW}make brew-neovim${NC}              brew neovim"
 	@echo "${YELLOW}make brew-vscode${NC}              brew vscode"
 	@echo

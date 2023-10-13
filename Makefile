@@ -81,6 +81,17 @@ brew-clouddrives:
 	brew install --cask nextcloud
 	brew install --cask kdrive
 
+.PHONY: brew-obsidian
+brew-obsidian:
+	brew install --cask obsidian
+
+.PHONY: brew-spotify
+brew-spotify:
+	brew install --cask spotify
+
+.PHONY: brew-apps
+brew-apps: brew-discord brew-tuple brew-zoom brew-messengers brew-clouddrives brew-obsidian brew-spotify
+
 .PHONY: zsh
 zsh:
 	@sh -c "$$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -164,24 +175,29 @@ usage:
 	@echo "Hi ${GREEN}${USER}!${NC} Welcome to ${RED}${CURRENT_DIR}${NC}"
 	@echo
 	@echo "${RED}First things first:${NC}"
-	@echo "  VPN, Pass Manager(can be via AppStore or package manager, AppStore can provide better integrations on Macs)"
 	@echo "  packackge manager for macs - Homebrew"
+	@echo "  VPN(via AppStore or Package Manager), Pass Manager(can be via AppStore or package manager, AppStore can provide better integrations on Macs)"
 	@echo "  Browsers Install(ideally via package manager): FF, Brave, Chrome, etc"
 	@echo "Getting started as per https://github.com/lewagon/setup/blob/master/macos.md"
 	@echo
 	@echo "${YELLOW}make brew-install${NC}             install brew and xcode"
 	@echo "${YELLOW}make brew-browsers${NC}            brew web-browsers: FF, Chrome, Brace"
-	@echo "${YELLOW}make brew-essentials${NC}          brew essential apps"
+	@echo "${YELLOW}make brew-essentials${NC}          brew essential libraries(jq, git, openssl, etc)"
 	@echo "${YELLOW}make brew-extra${NC}               brew asdf, git-delta, batcat"
 	@echo "${YELLOW}make brew-iterm${NC}               brew iTerm2"
 	@echo "${YELLOW}make brew-fzf${NC}                 brew fuzzy reverse search of commands"
 	@echo "${YELLOW}make brew-neovim${NC}              brew neovim"
 	@echo "${YELLOW}make brew-vscode${NC}              brew vscode"
+	@echo
 	@echo "${YELLOW}make brew-discord${NC}             brew discord"
 	@echo "${YELLOW}make brew-tuple${NC}               brew tuple"
 	@echo "${YELLOW}make brew-zoom${NC}                brew zoom"
 	@echo "${YELLOW}make brew-messengers${NC}          brew messengers: Signal, Telegram"
 	@echo "${YELLOW}make brew-clouddrives${NC}         brew cloud drives: NextCloud, kDrive"
+	@echo "${YELLOW}make brew-spotify${NC}             brew Spotify"
+	@echo "${YELLOW}make brew-obsidian${NC}            brew Obsidian"
+	@echo
+	@echo "${YELLOW}make brew-apps${NC}                brew above apps"
 	@echo
 	@echo "${YELLOW}make zsh${NC}                      install ZSH"
 	@echo "${YELLOW}make zsh-syntax-highlighting${NC}  install ZSH syntax-highlighting"

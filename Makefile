@@ -77,6 +77,7 @@ brew-zoom:
 
 .PHONY: brew-messengers
 brew-messengers:
+	brew install --cask slack
 	brew install --cask signal
 	brew install --cask telegram
 
@@ -197,7 +198,7 @@ usage:
 	@echo "${YELLOW}make brew-discord${NC}             brew discord"
 	@echo "${YELLOW}make brew-tuple${NC}               brew tuple"
 	@echo "${YELLOW}make brew-zoom${NC}                brew zoom"
-	@echo "${YELLOW}make brew-messengers${NC}          brew messengers: Signal, Telegram"
+	@echo "${YELLOW}make brew-messengers${NC}          brew messengers: Slack, Signal, Telegram"
 	@echo "${YELLOW}make brew-clouddrives${NC}         brew cloud drives: NextCloud, kDrive"
 	@echo "${YELLOW}make brew-spotify${NC}             brew Spotify"
 	@echo "${YELLOW}make brew-obsidian${NC}            brew Obsidian"

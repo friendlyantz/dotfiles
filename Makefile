@@ -94,8 +94,12 @@ brew-obsidian:
 brew-spotify:
 	brew install --cask spotify
 
+.PHONY: brew-prusaslicer
+brew-prusaslicer:
+	brew install --cask prusaslicer
+
 .PHONY: brew-apps
-brew-apps: brew-discord brew-tuple brew-zoom brew-messengers brew-clouddrives brew-obsidian brew-spotify
+brew-apps: brew-discord brew-tuple brew-zoom brew-messengers brew-clouddrives brew-obsidian brew-spotify brew-prusaslicer
 
 .PHONY: zsh
 zsh:
@@ -182,7 +186,7 @@ usage:
 	@echo "${RED}First things first:${NC}"
 	@echo "  packackge manager for macs - Homebrew"
 	@echo "  VPN(via AppStore or Package Manager), Pass Manager(can be via AppStore or package manager, AppStore can provide better integrations on Macs)"
-	@echo "  Browsers Install(ideally via package manager): FF, Brave, Chrome, etc"
+	@echo "  then install all app, browsers, etc via package manager to have dependencies managed in one place"
 	@echo "Getting started as per https://github.com/lewagon/setup/blob/master/macos.md"
 	@echo
 	@echo "${YELLOW}make brew-install${NC}             install brew and xcode"
@@ -200,8 +204,9 @@ usage:
 	@echo "${YELLOW}make brew-zoom${NC}                brew zoom"
 	@echo "${YELLOW}make brew-messengers${NC}          brew messengers: Slack, Signal, Telegram"
 	@echo "${YELLOW}make brew-clouddrives${NC}         brew cloud drives: NextCloud, kDrive"
-	@echo "${YELLOW}make brew-spotify${NC}             brew Spotify"
 	@echo "${YELLOW}make brew-obsidian${NC}            brew Obsidian"
+	@echo "${YELLOW}make brew-spotify${NC}             brew Spotify"
+	@echo "${YELLOW}make brew-prusaslicer${NC}         brew Prusa Slicer for 3D printing"
 	@echo
 	@echo "${YELLOW}make brew-apps${NC}                brew above apps"
 	@echo

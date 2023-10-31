@@ -68,7 +68,7 @@ alias pgstart='pg_ctl -D tmp/postgres -l tmp/postgres/logfile start || echo "pg 
 alias pgstop='pg_ctl -D tmp/postgres -l tmp/postgres/logfile stop || echo "pg was probably stopped"'
 alias msfconsole='/opt/metasploit-framework/bin/msfconsole'
 
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export PATH="$HOME/.bin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="/opt/homebrew/opt/kubernetes-cli@1.22/bin:$PATH"
 set -o vi
 

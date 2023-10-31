@@ -202,6 +202,8 @@ usage:
 	@echo "${YELLOW}make brew-neovim${NC}              brew neovim"
 	@echo "${YELLOW}make brew-vscode${NC}              brew vscode"
 	@echo
+	@echo "${YELLOW}make brew-apps${NC}                brew below apps"
+	@echo
 	@echo "${YELLOW}make brew-discord${NC}             brew discord"
 	@echo "${YELLOW}make brew-tuple${NC}               brew tuple"
 	@echo "${YELLOW}make brew-zoom${NC}                brew zoom"
@@ -210,8 +212,6 @@ usage:
 	@echo "${YELLOW}make brew-obsidian${NC}            brew Obsidian"
 	@echo "${YELLOW}make brew-spotify${NC}             brew Spotify"
 	@echo "${YELLOW}make brew-prusaslicer${NC}         brew Prusa Slicer for 3D printing"
-	@echo
-	@echo "${YELLOW}make brew-apps${NC}                brew above apps"
 	@echo
 	@echo "${YELLOW}make gh-cli${NC}                   login GitHub CLI"
 	@echo

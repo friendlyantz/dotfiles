@@ -184,12 +184,15 @@ usage:
 	@echo "Hi ${GREEN}${USER}!${NC} Welcome to ${RED}${CURRENT_DIR}${NC}"
 	@echo
 	@echo "${RED}First things first:${NC}"
-	@echo "  packackge manager for macs - Homebrew"
-	@echo "  VPN(via AppStore or Package Manager), Pass Manager(can be via AppStore or package manager, AppStore can provide better integrations on Macs)"
+	@echo "  VPN(via AppStore or Package Manager), Pass Manager(can be via AppStore or package manager, AppStore can provide better integrations on Macs). same goes to Cron calendar app for Macs"
 	@echo "  then install all app, browsers, etc via package manager to have dependencies managed in one place"
-	@echo "Getting started as per https://github.com/lewagon/setup/blob/master/macos.md"
 	@echo
-	@echo "${YELLOW}make brew-install${NC}             install brew and xcode"
+	@echo "${YELLOW}make xcode{NC}                     install xcode"
+	@echo
+	@echo "${YELLOW}make zsh${NC}                      install ZSH"
+	@echo "${YELLOW}make zsh-syntax-highlighting${NC}  install ZSH syntax-highlighting"
+	@echo
+	@echo "${YELLOW}make brew-install${NC}             install brew"
 	@echo "${YELLOW}make brew-browsers${NC}            brew web-browsers: FF, Chrome, Brace"
 	@echo "${YELLOW}make brew-essentials${NC}          brew essential libraries(jq, git, openssl, etc)"
 	@echo "${YELLOW}make brew-extra${NC}               brew asdf, git-delta, batcat"
@@ -209,9 +212,6 @@ usage:
 	@echo "${YELLOW}make brew-prusaslicer${NC}         brew Prusa Slicer for 3D printing"
 	@echo
 	@echo "${YELLOW}make brew-apps${NC}                brew above apps"
-	@echo
-	@echo "${YELLOW}make zsh${NC}                      install ZSH"
-	@echo "${YELLOW}make zsh-syntax-highlighting${NC}  install ZSH syntax-highlighting"
 	@echo
 	@echo "${YELLOW}make gh-cli${NC}                   login GitHub CLI"
 	@echo

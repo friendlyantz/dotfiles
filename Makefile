@@ -109,30 +109,31 @@ zsh:
 zsh-syntax-highlighting:
 	@git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
+.PHONY: zsh-powershell10k
+zsh-powershell10k:
+	git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+
 .PHONY: gh-cli
 gh-cli:
 	gh auth login -s 'user:email' -w
 	gh auth status
 	gh api user/emails | jq -r '.[].email'
 
-.PHONY: dotfiles
-dotfiles:
-	cd ~/code/$GITHUB_USERNAME/dotfiles
-	gh repo clone friendlyantz/dotfiles
-
 .PHONY: dotfiles-install
 dotfiles-install:
 	zsh install.sh
 
+.PHONY: gpg-gen
+gpg-gen:
+	gpg --full-generate-key --expert
+
+.PHONY: gpg-list
+gpg-list:
+	gpg --list-secret-keys --keyid-format=long
+
 .PHONY: dotfiles-git
 dotfiles-git:
-	gpg --full-generate-key
-	gpg --list-secret-keys --keyid-format=long
 	zsh git_setup.sh
-
-.PHONY: zsh-powershell10k
-zsh-powershell10k:
-	git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 
 .PHONY: asdf-install
 asdf-install:
@@ -191,10 +192,16 @@ usage:
 	@echo
 	@echo "${YELLOW}make zsh${NC}                      install ZSH"
 	@echo "${YELLOW}make zsh-syntax-highlighting${NC}  install ZSH syntax-highlighting"
+	@echo "${YELLOW}make zsh-powershell10k${NC}        zsh-powershell10k(ensure to use UNICODE) OR to retry: 'p10k configure'"
 	@echo
 	@echo "${YELLOW}make brew-install${NC}             install brew"
 	@echo "${YELLOW}make brew-browsers${NC}            brew web-browsers: FF, Chrome, Brace"
 	@echo "${YELLOW}make brew-essentials${NC}          brew essential libraries(jq, git, openssl, etc)"
+	@echo
+	@echo "${YELLOW}make gpg-gen${NC}                  gpg generate"
+	@echo "${YELLOW}make gpg-list${NC}                 gpg list"
+	@echo "${YELLOW}make dotfiles-git${NC}             after gpg generation run zsh git script"
+	@echo
 	@echo "${YELLOW}make brew-extra${NC}               brew asdf, git-delta, batcat"
 	@echo "${YELLOW}make brew-iterm${NC}               brew iTerm2"
 	@echo "${YELLOW}make brew-fzf${NC}                 brew fuzzy reverse search of commands"
@@ -217,7 +224,6 @@ usage:
 	@echo
 	@echo "${YELLOW}make dotfiles${NC}                 IF HAVENT done already, pull dotfiles"
 	@echo "${YELLOW}make dotfiles-install${NC}         zsh install.sh"
-	@echo "${YELLOW}make zsh-powershell10k${NC}        zsh-powershell10k(ensure to use UNICODE) OR to retry: 'p10k configure'"
 	@echo
 	@echo "${YELLOW}make asdf-install${NC}             install ASDF package manager"
 	@echo "${YELLOW}make asdf-ruby${NC}                install Ruby via asdf"

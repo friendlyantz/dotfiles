@@ -19,8 +19,8 @@ ZSH_DISABLE_COMPFIX="true" # for bypassing RT warnings
 
 ZSH=$HOME/.oh-my-zsh
 
-ZSH_THEME="powerlevel10k/powerlevel10k"
-# ZSH_THEME="robbyrussell"
+# ZSH_THEME="powerlevel10k/powerlevel10k"
+ZSH_THEME="robbyrussell"
 
 # Useful oh-my-zsh plugins
 plugins=(git gitfast last-working-dir common-aliases zsh-syntax-highlighting history-substring-search)
@@ -88,3 +88,4 @@ fpath=(${ASDF_DIR}/completions $fpath)
 autoload -Uz compinit && compinit
 
 export BETTER_ERRORS_EDITOR="code --wait"
+source ~/powerlevel10k/powerlevel10k.zsh-theme

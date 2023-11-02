@@ -12,9 +12,13 @@ NC      = \033[0m
 # versions
 APP_REVISION    = $(shell git rev-parse HEAD)
 
+.PHONY: xcode
+xcode:
+	xcode-select --install
+	sudo xcode-select -switch /Library/Developer/CommandLineTools
+
 .PHONY: brew-install
 brew-install:
-	xcode-select --install
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 .PHONY: brew-essentials

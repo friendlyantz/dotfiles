@@ -210,6 +210,11 @@ usage:
 	@echo
 	@echo "${YELLOW}make brew-extra${NC}               brew asdf, git-delta, batcat"
 	@echo "${YELLOW}make brew-iterm${NC}               brew iTerm2"
+	@echo
+	@echo "${RED}Install Shell integration${NC}     setup shell integration - iTerm2 -> Install Shell Integration"
+	@echo "${RED}Install tmux integration${NC}      change setting to open TMUX windows in native tabs: General -> TMUX -> dropdown: Native Tabs in new window"
+	@echo "${RED}add script to enable iterm command click on files to open in your editor${NC}      refer Ruby script"
+	@echo
 	@echo "${YELLOW}make brew-fzf${NC}                 brew fuzzy reverse search of commands"
 	@echo "${YELLOW}make brew-imgcat${NC}              brew image cat"
 	@echo "${YELLOW}make brew-neovim${NC}              brew neovim"

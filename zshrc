@@ -89,3 +89,4 @@ autoload -Uz compinit && compinit
 
 export BETTER_ERRORS_EDITOR="code --wait"
 source ~/powerlevel10k/powerlevel10k.zsh-theme
+export BUNDLER_EDITOR="vi -a"

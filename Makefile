@@ -45,7 +45,7 @@ brew-iterm:
 
 .PHONY: brew-fzf
 brew-fzf:
-	brew install fzf
+	brew upgrade fzf || brew install fzf
 	# To install useful key bindings and fuzzy completion:
 	$(brew --prefix)/opt/fzf/install
 

@@ -185,8 +185,10 @@ usage:
 	@echo "Hi ${GREEN}${USER}!${NC} Welcome to ${RED}${CURRENT_DIR}${NC}"
 	@echo
 	@echo "${RED}First things first:${NC}"
-	@echo "  VPN(via AppStore or Package Manager), Pass Manager(can be via AppStore or package manager, AppStore can provide better integrations on Macs). same goes to Cron calendar app for Macs"
-	@echo "  then install all app, browsers, etc via package manager to have dependencies managed in one place"
+	@echo "  VPN(via AppStore or Package Manager)"
+	@echo "  Pass Manager(can be via AppStore or package manager, AppStore can provide better integrations on Macs)."
+	@echo "  same goes to Cron calendar app for Macs"
+	@echo "  then install all apps, browsers, etc via package manager to have dependencies managed in one place"
 	@echo
 	@echo "${YELLOW}make xcode{NC}                     install xcode"
 	@echo

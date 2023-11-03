@@ -149,6 +149,8 @@ asdf-install:
 asdf-ruby:
 	asdf plugin add ruby
 	asdf install ruby latest
+	exec zsh
+	asdf shell ruby latest
 	asdf global ruby latest
 
 .PHONY: ruby-gem-essentials
@@ -214,6 +216,8 @@ usage:
 	@echo "${RED}Install Shell integration${NC}     setup shell integration - iTerm2 -> Install Shell Integration"
 	@echo "${RED}Install tmux integration${NC}      change setting to open TMUX windows in native tabs: General -> TMUX -> dropdown: Native Tabs in new window"
 	@echo "${RED}add script to enable iterm command click on files to open in your editor${NC}      refer Ruby script"
+	@echo "${RED}change Profile -> General -> Working directory : Reuse previous session's directory${NC}"
+
 	@echo
 	@echo "${YELLOW}make brew-fzf${NC}                 brew fuzzy reverse search of commands"
 	@echo "${YELLOW}make brew-imgcat${NC}              brew image cat"

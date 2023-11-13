@@ -35,6 +35,7 @@ brew-extra:
 	brew upgrade bat || brew install bat
 	brew upgrade gpg-suite-no-mail || brew install --cask gpg-suite-no-mail
 	brew upgrade git-delta || brew install git-delta
+	brew upgrade ripgrep || brew install ripgrep
 
 .PHONY: brew-browsers
 brew-browsers:

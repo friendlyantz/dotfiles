@@ -65,6 +65,9 @@ export GPG_TTY=$TTY
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+iterm2_print_user_vars() {
+  iterm2_set_user_var gitBranch $((git branch 2> /dev/null) | grep \* | cut -c3-)
+}
 
 export BUNDLER_EDITOR=code
 export EDITOR=vi
@@ -90,3 +93,4 @@ autoload -Uz compinit && compinit
 export BETTER_ERRORS_EDITOR="code --wait"
 source ~/powerlevel10k/powerlevel10k.zsh-theme
 export BUNDLER_EDITOR="vi -a"
+export FRESHO_PROJECT_PATH=~/code/fresho

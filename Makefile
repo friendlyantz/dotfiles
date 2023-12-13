@@ -36,6 +36,8 @@ brew-extra:
 	brew upgrade gpg-suite-no-mail || brew install --cask gpg-suite-no-mail
 	brew upgrade git-delta || brew install git-delta
 	brew upgrade ripgrep || brew install ripgrep
+	brew upgrade htop || brew install htop
+	brew upgrade the_silver_searcher || brew install the_silver_searcher
 
 .PHONY: brew-browsers
 brew-browsers:

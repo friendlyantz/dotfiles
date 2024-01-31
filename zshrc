@@ -5,12 +5,13 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-FRESHO_ROOT=$HOME/code/fresho/
+FRESHO_PROJECT_PATH=$HOME/code/fresho/
 fo-env () {
-	pushd $FRESHO_ROOT
+	pushd $FRESHO_PROJECT_PATH
 	source ./bin/secrets/load-local-env friendlyantz
 	popd
 }
+
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -67,10 +68,11 @@ export GPG_TTY=$TTY
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 iterm2_print_user_vars() {
   iterm2_set_user_var gitBranch $((git branch 2> /dev/null) | grep \* | cut -c3-)
+  iterm2_set_user_var currentDirectory $(basename $(pwd))
 }
 
 export BUNDLER_EDITOR=code
-export EDITOR=vi
+export EDITOR=nvim
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -94,3 +96,7 @@ export BETTER_ERRORS_EDITOR="code --wait"
 source ~/powerlevel10k/powerlevel10k.zsh-theme
 export BUNDLER_EDITOR="vi -a"
 export FRESHO_PROJECT_PATH=~/code/fresho
+source /Users/friendlyantz/code/fresho/zsh/functions
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /opt/homebrew/bin/terraform terraform

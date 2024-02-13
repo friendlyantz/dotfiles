@@ -6,7 +6,7 @@ begin
 rescue LoadError
 end
 
-if defined?(Pry)
-  Pry.start
-  exit
-end
+# if defined?(Pry)
+#   Pry.start
+#   exit
+# end

@@ -81,9 +81,9 @@
 [pull]
 	rebase = true
 
-[includIf "gitdir:~/work/"]
-    path = ~/code/work/.gitconfig
-[includeIf "gitdir:~/personal/"]
+[includIf "gitdir:/Users/friendlyantz/code/work"]
+    path = /Users/friendlyantz/code/work/.gitconfig
+[includeIf "gitdir:~/code/personal/"]
     path = ~/code/personal/.gitconfig
 [rerere]
 	enabled = true

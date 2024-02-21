@@ -5,9 +5,9 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-FRESHO_PROJECT_PATH=$HOME/code/fresho/
+FRESHO_PROJECT_PATH=$HOME/code/work
 fo-env () {
-	pushd $FRESHO_PROJECT_PATH
+	pushd $FRESHO_PROJECT_PATH/fresho
 	source ./bin/secrets/load-local-env friendlyantz
 	popd
 }
@@ -95,8 +95,7 @@ autoload -Uz compinit && compinit
 export BETTER_ERRORS_EDITOR="code --wait"
 source ~/powerlevel10k/powerlevel10k.zsh-theme
 export BUNDLER_EDITOR="vi -a"
-export FRESHO_PROJECT_PATH=~/code/fresho
-source /Users/friendlyantz/code/fresho/zsh/functions
-
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
+
+. /Users/friendlyantz/code/work/fresho/zsh/functions

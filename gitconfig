@@ -47,7 +47,7 @@
 [branch "master"]
   mergeoptions = --no-edit
 [user]
-	email = 70934030+friendlyantz@users.noreply.github.com
+	email = friendlyantz@pm.me
 	name = friendlyantz
 	signingkey = 279A629E12CAF34E
 [merge]
@@ -78,12 +78,13 @@
 
 [interactive]
     diffFilter = delta --color-only
+
 [pull]
 	rebase = true
 
-[includIf "gitdir:/Users/friendlyantz/code/work"]
-    path = /Users/friendlyantz/code/work/.gitconfig
-[includeIf "gitdir:~/code/personal/"]
-    path = ~/code/personal/.gitconfig
 [rerere]
 	enabled = true
+
+# keep this at the end, dir should end with '/'
+[includeIf "gitdir/i:~/code/work/"]
+    path = /Users/friendlyantz/code/work/.gitconfig

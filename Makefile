@@ -105,8 +105,12 @@ brew-spotify:
 brew-prusaslicer:
 	brew install --cask prusaslicer
 
+.PHONY: brew-betaflight
+brew-betaflight:
+	brew install --cask betaflight-configurator
+
 .PHONY: brew-apps
-brew-apps: brew-discord brew-tuple brew-zoom brew-messengers brew-clouddrives brew-obsidian brew-spotify brew-prusaslicer
+brew-apps: brew-discord brew-tuple brew-zoom brew-messengers brew-clouddrives brew-obsidian brew-spotify brew-prusaslicer brew-betaflight
 
 .PHONY: zsh
 zsh:

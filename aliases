@@ -5,6 +5,8 @@ alias speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/m
 # Quickly serve the current directory as HTTP
 alias serve='ruby -run -e httpd . -p 8000' # Or python -m SimpleHTTPServer :)
 
+alias s="bundle exec rspec"
+
 alias rch='rspec $(git ls-files --modified --others spec)'
 
 alias vim='nvim'
@@ -17,10 +19,12 @@ alias gcs='git commit -S --verbose'
 
 alias fame='open https://friendlyantz.me'
 
-alias hmm="cat <<- EOF
+alias hmm='cat <<- EOF
 ¯\_(ツ)_/¯
 EOF
-"
+'
+
+alias tomatome='printf '🍅%.0s' {1..1000}; echo'
 
 alias clown="cat <<- EOF
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⡾⠻⢶⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀

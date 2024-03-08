@@ -39,6 +39,8 @@ brew-extra:
 	brew upgrade htop || brew install htop
 	brew upgrade the_silver_searcher || brew install the_silver_searcher
 	brew update openssh || brew install openssh
+	brew install eddieantonio/eddieantonio/imgcat
+	brew install nmap
 
 .PHONY: brew-browsers
 brew-browsers:
@@ -56,10 +58,6 @@ brew-fzf:
 	brew upgrade fzf || brew install fzf
 	# To install useful key bindings and fuzzy completion:
 	$(brew --prefix)/opt/fzf/install
-
-.PHONY: brew-imgcat
-brew-imgcat:
-	brew install eddieantonio/eddieantonio/imgcat
 
 .PHONY: brew-neovim
 brew-neovim:
@@ -228,7 +226,6 @@ usage:
 
 	@echo
 	@echo "${YELLOW}make brew-fzf${NC}                 brew fuzzy reverse search of commands"
-	@echo "${YELLOW}make brew-imgcat${NC}              brew image cat"
 	@echo "${YELLOW}make brew-neovim${NC}              brew neovim"
 	@echo "${YELLOW}make brew-vscode${NC}              brew vscode"
 	@echo
@@ -250,7 +247,7 @@ usage:
 	@echo
 	@echo "${YELLOW}make asdf-install${NC}             install ASDF package manager"
 	@echo "${YELLOW}make asdf-ruby${NC}                install Ruby via asdf"
-	@echo "${YELLOW}make ruby-gem-essentials${NC}           install Ruby essential gems"
+	@echo "${YELLOW}make ruby-gem-essentials${NC}      install Ruby essential gems"
 	@echo
 	@echo "${YELLOW}make readmore${NC}                 further options tweaks and scripts"
 	@echo "${YELLOW}make mac-settings${NC}             sane mac settings scripts"

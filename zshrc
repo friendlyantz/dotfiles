@@ -91,7 +91,7 @@ export BUNDLER_EDITOR="code $@"
 fpath=(${ASDF_DIR}/completions $fpath)
 # initialise completions with ZSH's compinit
 autoload -Uz compinit && compinit
-
+source ~/powerlevel10k/powerlevel10k.zsh-theme
 export BETTER_ERRORS_EDITOR="code --wait"
 export BUNDLER_EDITOR="vi -a"
 autoload -U +X bashcompinit && bashcompinit

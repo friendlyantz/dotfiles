@@ -49,7 +49,7 @@
 [user]
 	email = friendlyantz@pm.me
 	name = friendlyantz
-	signingkey = A87BA807E18ED14B
+	signingkey = 279A629E12CAF34E
 [merge]
 	tool = vscode
 [mergetool "vscode"]

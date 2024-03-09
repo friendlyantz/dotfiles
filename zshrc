@@ -98,4 +98,3 @@ autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
 
 source /Users/friendlyantz/code/work/fresho/zsh/functions
-source ~/powerlevel10k/powerlevel10k.zsh-theme

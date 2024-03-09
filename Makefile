@@ -38,6 +38,7 @@ brew-extra:
 	brew upgrade ripgrep || brew install ripgrep
 	brew upgrade htop || brew install htop
 	brew upgrade the_silver_searcher || brew install the_silver_searcher
+	brew update openssh || brew install openssh
 
 .PHONY: brew-browsers
 brew-browsers:

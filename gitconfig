@@ -49,7 +49,6 @@
 [user]
 	email = friendlyantz@pm.me
 	name = friendlyantz
-	signingkey = 279A629E12CAF34E
 [merge]
 	tool = vscode
 [mergetool "vscode"]
@@ -86,5 +85,7 @@
 	enabled = true
 
 # keep this at the end, dir should end with '/'
+[includeIf "gitdir/i:~/code/"]
+    path = /Users/friendlyantz/.gitconfig-generic
 [includeIf "gitdir/i:~/code/work/"]
     path = /Users/friendlyantz/code/work/.gitconfig

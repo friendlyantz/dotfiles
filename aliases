@@ -5,10 +5,18 @@ alias speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/m
 # Quickly serve the current directory as HTTP
 alias serve='ruby -run -e httpd . -p 8000' # Or python -m SimpleHTTPServer :)
 
+# Ruby
 alias s="bundle exec rspec"
+alias sm='bundle exec rspec $(git ls-files --modified --others spec)'
+alias be="bundle exec"
 alias hl="HEADLESS=true"
 
-alias rch='rspec $(git ls-files --modified --others spec)'
+# Web Browser
+alias chrome="open -a 'Google Chrome'"
+alias firefox="open -a 'Firefox'"
+alias safari="open -a 'Safari'"
+alias brave="open -a 'Brave Browser'"
+alias tor="open -a 'Tor Browser'"
 
 alias vim='nvim'
 alias v='nvim .'

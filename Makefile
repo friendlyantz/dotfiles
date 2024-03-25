@@ -25,6 +25,7 @@ brew-install:
 brew-essentials:
 	brew upgrade git || brew install git
 	brew upgrade gh || brew install gh
+	gh extension install github/gh-copilot
 	brew upgrade wget || brew install wget
 	brew upgrade imagemagick || brew install imagemagick
 	brew upgrade jq || brew install jq

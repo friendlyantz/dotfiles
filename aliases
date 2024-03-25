@@ -7,6 +7,7 @@ alias serve='ruby -run -e httpd . -p 8000' # Or python -m SimpleHTTPServer :)
 
 # Ruby
 alias s="bundle exec rspec"
+alias ffs="bundle exec rspec --fail-fast"
 alias sm='bundle exec rspec $(git ls-files --modified --others spec)'
 alias be="bundle exec"
 alias hl="HEADLESS=true"

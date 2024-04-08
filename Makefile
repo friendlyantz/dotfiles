@@ -157,9 +157,13 @@ asdf-install:
 asdf-ruby:
 	asdf plugin add ruby
 	asdf install ruby latest
-	exec zsh
-	asdf shell ruby latest
 	asdf global ruby latest
+
+.PHONY: asdf-rust
+asdf-rust:
+	asdf plugin add rust
+	asdf install rust latest
+	asdf global rust latest
 
 .PHONY: ruby-gem-essentials
 ruby-gem-essentials:
@@ -250,6 +254,8 @@ usage:
 	@echo "${YELLOW}make asdf-install${NC}             install ASDF package manager"
 	@echo "${YELLOW}make asdf-ruby${NC}                install Ruby via asdf"
 	@echo "${YELLOW}make ruby-gem-essentials${NC}      install Ruby essential gems"
+	@echo
+	@echo "${YELLOW}make asdf-rust${NC}                install Rust🦀 via asdf"
 	@echo
 	@echo "${YELLOW}make readmore${NC}                 further options tweaks and scripts"
 	@echo "${YELLOW}make mac-settings${NC}             sane mac settings scripts"

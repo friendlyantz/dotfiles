@@ -41,8 +41,12 @@ brew-extra:
 	brew upgrade htop || brew install htop
 	brew upgrade the_silver_searcher || brew install the_silver_searcher
 	brew update openssh || brew install openssh
-	brew install eddieantonio/eddieantonio/imgcat
 	brew install nmap
+	brew install exercism
+
+.PHONY: brew-imgcat
+brew-imgcat:
+	brew update eddieantonio/eddieantonio/imgcat || brew install eddieantonio/eddieantonio/imgcat
 
 .PHONY: brew-browsers
 brew-browsers:

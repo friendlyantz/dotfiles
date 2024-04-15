@@ -9,8 +9,8 @@ alias llama="ollama run llama2"
 alias serve='ruby -run -e httpd . -p 8000' # Or python -m SimpleHTTPServer :)
 
 # GitHub Copilot
-alias ghe="gh copilot explain"
-alias ghs="gh copilot suggest"
+alias cliexplain="gh copilot explain"
+alias clisuggest="gh copilot suggest"
 
 # Ruby
 alias s="bundle exec rspec"

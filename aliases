@@ -35,6 +35,7 @@ alias python='python3'
 alias gcs='git commit -S --verbose'
 
 alias fame='open https://friendlyantz.me'
+alias gists='open https://gist.github.com/friendlyantz'
 
 alias hmm='cat <<- EOF
 ¯\_(ツ)_/¯

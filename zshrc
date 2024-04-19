@@ -98,3 +98,7 @@ autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
 
 source /Users/friendlyantz/code/work/fresho/zsh/functions
+
+export WASMTIME_HOME="$HOME/.wasmtime"
+
+export PATH="$WASMTIME_HOME/bin:$PATH"

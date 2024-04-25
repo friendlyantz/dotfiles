@@ -56,9 +56,10 @@ brew-browsers:
 	brew install --cask brave-browser
 	brew install --cask tor-browser
 
-.PHONY: brew-iterm
-brew-iterm:
+.PHONY: brew-terminals
+brew-terminals:
 	brew install --cask iterm2
+	brew install --cask warp
 
 .PHONY: brew-fzf
 brew-fzf:
@@ -222,7 +223,7 @@ usage:
 	@echo "${YELLOW}make dotfiles-git${NC}             after gpg generation run zsh git script"
 	@echo
 	@echo "${YELLOW}make brew-extra${NC}               brew asdf, git-delta, batcat"
-	@echo "${YELLOW}make brew-iterm${NC}               brew iTerm2"
+	@echo "${YELLOW}make brew-terminals${NC}           brew terminals"
 	@echo
 	@echo "${RED}Install Shell integration${NC}     setup shell integration - iTerm2 -> Install Shell Integration"
 	@echo "${RED}Install tmux integration${NC}      change setting to open TMUX windows in native tabs: General -> TMUX -> dropdown: Native Tabs in new window"

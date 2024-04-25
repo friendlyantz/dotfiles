@@ -40,9 +40,10 @@ brew-extra:
 	brew upgrade ripgrep || brew install ripgrep
 	brew upgrade htop || brew install htop
 	brew upgrade the_silver_searcher || brew install the_silver_searcher
-	brew update openssh || brew install openssh
+	brew upgrade openssh || brew install openssh
 	brew install nmap
 	brew install exercism
+	brew install --cask veracrypt
 
 .PHONY: brew-imgcat
 brew-imgcat:

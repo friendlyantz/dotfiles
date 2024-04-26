@@ -38,12 +38,13 @@ brew-extra:
 	brew upgrade gpg-suite-no-mail || brew install --cask gpg-suite-no-mail
 	brew upgrade git-delta || brew install git-delta
 	brew upgrade ripgrep || brew install ripgrep
-	brew upgrade htop || brew install htop
+	brew upgrade btop || brew install btop
 	brew upgrade the_silver_searcher || brew install the_silver_searcher
 	brew upgrade openssh || brew install openssh
 	brew install nmap
 	brew install exercism
 	brew install --cask veracrypt
+	brew install sshuttle
 
 .PHONY: brew-imgcat
 brew-imgcat:

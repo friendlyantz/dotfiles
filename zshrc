@@ -93,7 +93,6 @@ fpath=(${ASDF_DIR}/completions $fpath)
 autoload -Uz compinit && compinit
 source ~/powerlevel10k/powerlevel10k.zsh-theme
 export BETTER_ERRORS_EDITOR="code --wait"
-export BUNDLER_EDITOR="vi -a"
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
 

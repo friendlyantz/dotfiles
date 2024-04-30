@@ -101,3 +101,4 @@ source /Users/friendlyantz/code/work/fresho/zsh/functions
 export WASMTIME_HOME="$HOME/.wasmtime"
 
 export PATH="$WASMTIME_HOME/bin:$PATH"
+export PATH="/Applications/RubyMine.app/Contents/MacOS:$PATH"

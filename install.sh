@@ -55,9 +55,9 @@ if [[ ! `uname` =~ "darwin" ]]; then
   git config --global core.editor "subl -n -w $@ >/dev/null 2>&1"
   echo 'export BUNDLER_EDITOR="subl $@ >/dev/null 2>&1 -a"' >> zshrc
 else
-  git config --global core.editor "vi"
-  bundler_editor="vi"
-  echo "export BUNDLER_EDITOR=\"${bundler_editor} -a\"" >> zshrc
+  git config --global core.editor "nvim"
+  bundler_editor="nvim"
+  echo "export BUNDLER_EDITOR=\"${bundler_editor}\"" >> zshrc
 fi
 
 zsh ~/.zshrc

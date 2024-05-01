@@ -28,6 +28,7 @@ alias tor="open -a 'Tor Browser'"
 
 alias vim='nvim'
 alias v='nvim .'
+alias rum='rubymine'
 
 alias py='python3'
 alias python='python3'
@@ -36,6 +37,7 @@ alias gcs='git commit -S --verbose'
 
 alias fame='open https://friendlyantz.me'
 alias gists='open https://gist.github.com/friendlyantz'
+alias kinesis='open https://kinesiscorporation.github.io/Adv360-Pro-GUI/'
 
 alias hmm='cat <<- EOF
 ¯\_(ツ)_/¯

@@ -12,6 +12,7 @@
 [core]
   pager = less -FRSX
   editor = nvim
+	excludesfile = /Users/friendlyantz/.gitignore_global
 
 [alias]
   co = checkout

@@ -30,7 +30,6 @@ brew-essentials:
 	brew upgrade imagemagick || brew install imagemagick
 	brew upgrade jq || brew install jq
 	brew upgrade openssl || brew install openssl
-	brew install gcc readline zlib curl ossp-uuid icu4c # required for postgresql
 
 .PHONY: brew-extra
 brew-extra:

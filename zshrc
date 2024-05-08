@@ -103,3 +103,4 @@ export WASMTIME_HOME="$HOME/.wasmtime"
 export PATH="$WASMTIME_HOME/bin:$PATH"
 export PATH="/Applications/RubyMine.app/Contents/MacOS:$PATH"
 export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
+export PICO_SDK_PATH=/Users/friendlyantz/code/personal/pico/pico-sdk

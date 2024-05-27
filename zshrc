@@ -89,7 +89,7 @@ export BUNDLER_EDITOR="code $@"
 . "$HOME/.asdf/asdf.sh"
 # append completions to fpath
 fpath=(${ASDF_DIR}/completions $fpath)
-# initialise completions with ZSH's compinit
+# initialise completions with ZSHs compinit
 autoload -Uz compinit && compinit
 source ~/powerlevel10k/powerlevel10k.zsh-theme
 export BETTER_ERRORS_EDITOR="code --wait"
@@ -102,5 +102,8 @@ export WASMTIME_HOME="$HOME/.wasmtime"
 
 export PATH="$WASMTIME_HOME/bin:$PATH"
 export PATH="/Applications/RubyMine.app/Contents/MacOS:$PATH"
-export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
-export PICO_SDK_PATH=/Users/friendlyantz/code/personal/pico/pico-sdk
+export BUNDLER_EDITOR="nvim"
+
+if [[ -d "/opt/homebrew/opt/libpq/bin" ]]; then
+  export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+fi

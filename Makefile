@@ -121,6 +121,10 @@ brew-betaflight:
 .PHONY: brew-apps
 brew-apps: brew-discord brew-tuple brew-zoom brew-messengers brew-clouddrives brew-obsidian brew-spotify brew-prusaslicer brew-betaflight
 
+.PHONY: install-kitty-terminal
+install-kitty-terminal:
+	curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
+
 .PHONY: zsh
 zsh:
 	@sh -c "$$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -212,6 +216,7 @@ usage:
 	@echo
 	@echo "${YELLOW}make xcode{NC}                     install xcode"
 	@echo
+	@echo "${YELLOW}make install-kitty-terminal${NC}   install kitty terminal"
 	@echo "${YELLOW}make zsh${NC}                      install ZSH"
 	@echo "${YELLOW}make zsh-syntax-highlighting${NC}  install ZSH syntax-highlighting"
 	@echo "${YELLOW}make zsh-powershell10k${NC}        zsh-powershell10k(ensure to use UNICODE) OR to retry: 'p10k configure'"
@@ -231,7 +236,6 @@ usage:
 	@echo "${RED}Install tmux integration${NC}      change setting to open TMUX windows in native tabs: General -> TMUX -> dropdown: Native Tabs in new window"
 	@echo "${RED}add script to enable iterm command click on files to open in your editor${NC}      refer Ruby script"
 	@echo "${RED}change Profile -> General -> Working directory : Reuse previous session's directory${NC}"
-
 	@echo
 	@echo "${YELLOW}make brew-fzf${NC}                 brew fuzzy reverse search of commands"
 	@echo "${YELLOW}make brew-neovim${NC}              brew neovim"

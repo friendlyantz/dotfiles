@@ -45,6 +45,7 @@ brew-extra:
 	brew install --cask veracrypt
 	brew install sshuttle
 	brew install zellij
+	brew install hashcat
 
 .PHONY: brew-imgcat
 brew-imgcat:

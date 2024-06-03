@@ -1,17 +1,17 @@
 [color]
-  branch = auto
-  diff = auto
-  interactive = auto
-  status = auto
-  ui = auto
+    branch = auto
+    diff = auto
+    interactive = auto
+    status = auto
+    ui = auto
 
 [color "branch"]
-  current = green
-  remote = yellow
+    current = green
+    remote = yellow
 
 [core]
-  pager = less -FRSX
-	editor = nvim
+    pager = delta
+    editor = nvim
 	excludesfile = /Users/friendlyantz/.gitignore_global
 
 [alias]
@@ -52,10 +52,12 @@
 	name = friendlyantz
 [merge]
 	tool = vscode
+    conflictstyle = diff3
 [mergetool "vscode"]
 	cmd = "code --wait "
 [diff]
 	tool = vscode
+    colorMoved = default
 [difftool "vscode"]
 	cmd = "code --wait --diff  "
 [gpg]
@@ -70,12 +72,9 @@
     show = delta
 
 [delta]
-    plus-style = "syntax #012800"
-    minus-style = "syntax #340001"
-    syntax-theme = Monokai Extended
+    dark = true
     navigate = true
     side-by-side = true
-
 [interactive]
     diffFilter = delta --color-only
 

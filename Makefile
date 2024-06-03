@@ -30,6 +30,7 @@ brew-essentials:
 	brew upgrade imagemagick || brew install imagemagick
 	brew upgrade jq || brew install jq
 	brew upgrade openssl || brew install openssl
+	brew upgrade coreutils || brew install coreutils
 
 .PHONY: brew-extra
 brew-extra:

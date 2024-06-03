@@ -1,6 +1,9 @@
 # Get External IP / Internet Speed
 alias myip="curl https://ipinfo.io/json" # or /ip for plain-text ip
 alias speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -"
+ 
+# Terminal
+alias ls='gls --hyperlink=auto'
 
 # ML
 alias llama="ollama run llama2"
@@ -19,17 +22,22 @@ alias sm='bundle exec rspec $(git ls-files --modified --others spec)'
 alias be="bundle exec"
 alias hl="HEADLESS=true"
 
-# Web Browser
+# Mac apps
+alias obsidian="open -a 'Obsidian' ."
+
 alias chrome="open -a 'Google Chrome'"
 alias firefox="open -a 'Firefox'"
 alias safari="open -a 'Safari'"
 alias brave="open -a 'Brave Browser'"
 alias tor="open -a 'Tor Browser'"
 
+
+# Editors
 alias vim='nvim'
 alias v='nvim .'
 alias rum='rubymine'
 
+# Misc
 alias py='python3'
 alias python='python3'
 

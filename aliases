@@ -3,7 +3,7 @@ alias myip="curl https://ipinfo.io/json" # or /ip for plain-text ip
 alias speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -"
  
 # Terminal
-alias ls='gls --hyperlink=auto'
+alias ls='gls --hyperlink=auto --color'
 
 # ML
 alias llama="ollama run llama2"

@@ -47,6 +47,7 @@ brew-extra:
 	brew install sshuttle
 	brew install zellij
 	brew install hashcat
+	brew install --cask vlc
 
 .PHONY: brew-imgcat
 brew-imgcat:

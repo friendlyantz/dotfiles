@@ -39,6 +39,7 @@ brew-extra:
 	brew upgrade gpg-suite-no-mail || brew install --cask gpg-suite-no-mail
 	brew upgrade git-delta || brew install git-delta
 	brew upgrade ripgrep || brew install ripgrep
+	brew install fd
 	brew upgrade btop || brew install btop
 	brew upgrade openssh || brew install openssh
 	brew install nmap
@@ -74,6 +75,7 @@ brew-fzf:
 .PHONY: brew-neovim
 brew-neovim:
 	brew install neovim
+	brew install jesseduffield/lazygit/lazygit
 
 .PHONY: brew-vscode
 brew-vscode:

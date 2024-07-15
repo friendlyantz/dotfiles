@@ -49,6 +49,7 @@ brew-extra:
 	brew install zellij
 	brew install hashcat
 	brew install --cask vlc
+	brew install --cask betterdisplay
 
 .PHONY: brew-imgcat
 brew-imgcat:

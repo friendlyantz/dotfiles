@@ -5,10 +5,11 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+FRESHO_DEV_ENVIRONMENT=friendlyantz
 FRESHO_PROJECT_PATH=$HOME/code/work
-fo-env () {
+foenv () {
 	pushd $FRESHO_PROJECT_PATH/fresho
-	source ./bin/secrets/load-local-env friendlyantz
+	source ./bin/secrets/load-local-env $FRESHO_DEV_ENVIRONMENT
 	popd
 }
 

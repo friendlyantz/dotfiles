@@ -115,6 +115,10 @@ brew-obsidian:
 brew-spotify:
 	brew install --cask spotify
 
+.PHONY: brew-betterdisplay
+brew-betterdisplay:
+	brew install --cask betterdisplay
+
 .PHONY: brew-prusaslicer
 brew-prusaslicer:
 	brew install --cask prusaslicer
@@ -256,6 +260,7 @@ usage:
 	@echo "${YELLOW}make brew-obsidian${NC}            brew Obsidian"
 	@echo "${YELLOW}make brew-spotify${NC}             brew Spotify"
 	@echo "${YELLOW}make brew-prusaslicer${NC}         brew Prusa Slicer for 3D printing"
+	@echo "${YELLOW}make brew-betterdisplay${NC}       brew BetterDiplay.pro fo managing ext screen res"
 	@echo
 	@echo "${YELLOW}make gh-cli${NC}                   login GitHub CLI"
 	@echo

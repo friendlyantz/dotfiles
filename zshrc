@@ -105,6 +105,6 @@ export PATH="$WASMTIME_HOME/bin:$PATH"
 export PATH="/Applications/RubyMine.app/Contents/MacOS:$PATH"
 export BUNDLER_EDITOR="nvim"
 
-if [[ -d "/opt/homebrew/opt/libpq/bin" ]]; then
-  export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
-fi
+. "$HOME/.atuin/bin/env"
+
+eval "$(atuin init zsh)"

@@ -108,3 +108,5 @@ export BUNDLER_EDITOR="nvim"
 . "$HOME/.atuin/bin/env"
 
 eval "$(atuin init zsh)"
+
+DISABLE_AUTO_TITLE="true" # To allow tmux to show the name of tabs in zsh for iTerm2export BUNDLER_EDITOR="subl $@ >/dev/null 2>&1 -a"

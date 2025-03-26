@@ -65,7 +65,7 @@ brew-browsers:
 .PHONY: brew-terminals
 brew-terminals:
 	brew install --cask iterm2
-	brew install --cask warp
+	brew install --cask wezterm
 
 .PHONY: brew-fzf
 brew-fzf:

@@ -13,6 +13,10 @@ foenv () {
 	popd
 }
 
+semaphore () {
+  open "https://fresho.semaphoreci.com/projects/$(basename $PWD)"
+}
+
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -87,9 +91,10 @@ set -o vi
 
 export BUNDLER_EDITOR="code $@"
 
-. "$HOME/.asdf/asdf.sh"
-# append completions to fpath
-fpath=(${ASDF_DIR}/completions $fpath)
+. <(asdf completion zsh)
+eval "$(/opt/homebrew/bin/brew shellenv)"
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+
 # initialise completions with ZSHs compinit
 autoload -Uz compinit && compinit
 source ~/powerlevel10k/powerlevel10k.zsh-theme

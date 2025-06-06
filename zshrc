@@ -70,13 +70,7 @@ export GPG_TTY=$TTY
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-iterm2_print_user_vars() {
-  iterm2_set_user_var gitBranch $((git branch 2> /dev/null) | grep \* | cut -c3-)
-  iterm2_set_user_var currentDirectory $(basename $(pwd))
-}
-
-export BUNDLER_EDITOR=code
+export BUNDLER_EDITOR=nvim
 export EDITOR=nvim
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -91,10 +85,12 @@ set -o vi
 
 export BUNDLER_EDITOR="code $@"
 
-. <(asdf completion zsh)
-eval "$(/opt/homebrew/bin/brew shellenv)"
-export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+eval "$(~/.local/bin/mise activate zsh)"
 
+# . <(asdf completion zsh)
+# eval "$(/opt/homebrew/bin/brew shellenv)"
+# export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+#
 # initialise completions with ZSHs compinit
 autoload -Uz compinit && compinit
 source ~/powerlevel10k/powerlevel10k.zsh-theme
@@ -107,11 +103,17 @@ source /Users/friendlyantz/code/work/fresho/zsh/functions
 export WASMTIME_HOME="$HOME/.wasmtime"
 
 export PATH="$WASMTIME_HOME/bin:$PATH"
-export PATH="/Applications/RubyMine.app/Contents/MacOS:$PATH"
-export BUNDLER_EDITOR="nvim"
+# export PATH="/Applications/RubyMine.app/Contents/MacOS:$PATH"
 
-. "$HOME/.atuin/bin/env"
+source "$HOME/.atuin/bin/env"
 
 eval "$(atuin init zsh)"
 
 DISABLE_AUTO_TITLE="true" # To allow tmux to show the name of tabs in zsh for iTerm2export BUNDLER_EDITOR="subl $@ >/dev/null 2>&1 -a"
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+iterm2_print_user_vars() {
+  iterm2_set_user_var gitBranch $((git branch 2> /dev/null) | grep \* | cut -c3-)
+  iterm2_set_user_var currentDirectory $(basename $(pwd))
+}
+

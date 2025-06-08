@@ -89,3 +89,5 @@
     path = /Users/friendlyantz/.gitconfig-generic
 [includeIf "gitdir/i:~/code/work/"]
     path = /Users/friendlyantz/code/work/.gitconfig
+[init]
+	defaultBranch = master

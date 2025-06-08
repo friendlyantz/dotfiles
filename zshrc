@@ -98,6 +98,11 @@ export BETTER_ERRORS_EDITOR="code --wait"
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
 
+# jj vsc autocompletion
+autoload -U compinit
+compinit
+source <(jj util completion zsh)
+
 source /Users/friendlyantz/code/work/fresho/zsh/functions
 
 export WASMTIME_HOME="$HOME/.wasmtime"

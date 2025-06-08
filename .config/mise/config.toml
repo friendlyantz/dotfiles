@@ -1,0 +1,6 @@
+[tools]
+jj = "latest"
+ruby = "latest"
+
+[settings]
+idiomatic_version_file_enable_tools = []

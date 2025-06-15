@@ -10,9 +10,9 @@
     remote = yellow
 
 [core]
-    pager = delta
+  pager = delta
 	editor = nvim
-	excludesfile = /Users/friendlyantz/.gitignore_global
+	excludesfile = /Users/friendlyantz/.gitignore
 
 [alias]
   co = checkout

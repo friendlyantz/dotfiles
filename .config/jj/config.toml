@@ -7,3 +7,7 @@ email = "70934030+friendlyantz@users.noreply.github.com"
 [ui]
 default-command = "log"
 paginate = "never"
+
+[signing]
+behavior = "own"
+backend = "gpg"

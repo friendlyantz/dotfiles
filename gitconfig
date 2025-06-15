@@ -91,3 +91,5 @@
     path = /Users/friendlyantz/code/work/.gitconfig
 [init]
 	defaultBranch = master
+[maintenance]
+	repo = /Users/friendlyantz/code/friendlyantz

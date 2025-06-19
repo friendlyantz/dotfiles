@@ -50,6 +50,7 @@ brew-extra:
 	brew install hashcat
 	brew install --cask vlc
 	brew install --cask betterdisplay
+	brew install --cask menumeters
 
 .PHONY: brew-imgcat
 brew-imgcat:
@@ -118,6 +119,10 @@ brew-spotify:
 .PHONY: brew-betterdisplay
 brew-betterdisplay:
 	brew install --cask betterdisplay
+
+.PHONY: brew-menumeters
+brew-menumeters:
+	brew install --cask menumeters
 
 .PHONY: brew-prusaslicer
 brew-prusaslicer:

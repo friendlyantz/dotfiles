@@ -5,19 +5,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-FRESHO_DEV_ENVIRONMENT=friendlyantz
-FRESHO_PROJECT_PATH=$HOME/code/work
-foenv () {
-	pushd $FRESHO_PROJECT_PATH/fresho
-	source ./bin/secrets/load-local-env $FRESHO_DEV_ENVIRONMENT
-	popd
-}
-
-semaphore () {
-  open "https://fresho.semaphoreci.com/projects/$(basename $PWD)"
-}
-
-
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -55,10 +42,6 @@ export NVM_DIR="$HOME/.nvm"
 # Same for `./node_modules/.bin` and nodejs
 export PATH="./bin:./node_modules/.bin:${PATH}:/usr/local/sbin"
 
-# Load 'lewagon' virtualenv for the Data Bootcamp. You can comment these 2 lines to disable this behavior.
-# export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-# pyenv activate lewagon 2>/dev/null && echo "🐍 Loading 'lewagon' virtualenv"
-
 # Store your own aliases in the ~/.aliases file and load the here.
 [[ -f "$HOME/.aliases" ]] && source "$HOME/.aliases"
 
@@ -85,15 +68,14 @@ set -o vi
 
 export BUNDLER_EDITOR="code $@"
 
-eval "$(~/.local/bin/mise activate zsh)"
 
-# . <(asdf completion zsh)
-# eval "$(/opt/homebrew/bin/brew shellenv)"
-# export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
-#
 # initialise completions with ZSHs compinit
 autoload -Uz compinit && compinit
-source ~/powerlevel10k/powerlevel10k.zsh-theme
+
+# mise activation needs to be after compinit
+eval "$(~/.local/bin/mise activate zsh)"
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 export BETTER_ERRORS_EDITOR="code --wait"
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
@@ -103,14 +85,10 @@ autoload -U compinit
 compinit
 source <(jj util completion zsh)
 
-source /Users/friendlyantz/code/work/fresho/zsh/functions
 
 export WASMTIME_HOME="$HOME/.wasmtime"
-
 export PATH="$WASMTIME_HOME/bin:$PATH"
 # export PATH="/Applications/RubyMine.app/Contents/MacOS:$PATH"
-
-source "$HOME/.atuin/bin/env"
 
 eval "$(atuin init zsh)"
 

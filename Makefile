@@ -41,6 +41,7 @@ brew-extra:
 	brew upgrade ripgrep || brew install ripgrep
 	brew install fd
 	brew upgrade btop || brew install btop
+	brew install atuin
 	brew upgrade openssh || brew install openssh
 	brew install nmap
 	brew install exercism
@@ -48,9 +49,11 @@ brew-extra:
 	brew install sshuttle
 	brew install zellij
 	brew install hashcat
+	brew install speedtest-cli
 	brew install --cask vlc
 	brew install --cask betterdisplay
 	brew install --cask menumeters
+	brew install stats
 
 .PHONY: brew-imgcat
 brew-imgcat:
@@ -72,7 +75,7 @@ brew-terminals:
 brew-fzf:
 	brew upgrade fzf || brew install fzf
 	# To install useful key bindings and fuzzy completion:
-	$(brew --prefix)/opt/fzf/install
+	source <(fzf --zsh)
 
 .PHONY: brew-neovim
 brew-neovim:
@@ -173,18 +176,6 @@ gpg-list:
 dotfiles-git:
 	zsh git_setup.sh
 
-.PHONY: asdf-install
-asdf-install:
-	git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.13.1 || echo "asdf already installed"
-	source ~/.asdf/asdf.sh
-	asdf update
-
-.PHONY: asdf-ruby
-asdf-ruby:
-	asdf plugin add ruby
-	asdf install ruby latest
-	asdf global ruby latest
-
 .PHONY: ruby-gem-essentials
 ruby-gem-essentials:
 	gem install colorize faker http pry-byebug rake rails rest-client rspec rubocop-performance sqlite3 bundler
@@ -230,21 +221,21 @@ usage:
 	@echo
 	@echo "${YELLOW}make xcode{NC}                     install xcode"
 	@echo
-	@echo "${YELLOW}make install-kitty-terminal${NC}   install kitty terminal"
 	@echo "${YELLOW}make zsh${NC}                      install ZSH"
 	@echo "${YELLOW}make zsh-syntax-highlighting${NC}  install ZSH syntax-highlighting"
 	@echo "${YELLOW}make zsh-powershell10k${NC}        zsh-powershell10k(ensure to use UNICODE) OR to retry: 'p10k configure'"
 	@echo
 	@echo "${YELLOW}make brew-install${NC}             install brew"
+	@echo
+	@echo "${YELLOW}make brew-terminals${NC}           brew terminals"
+	@echo "${YELLOW}make install-kitty-terminal${NC}   install kitty terminal"
 	@echo "${YELLOW}make brew-browsers${NC}            brew web-browsers: FF, Chrome, Brace"
 	@echo "${YELLOW}make brew-essentials${NC}          brew essential libraries(jq, git, openssl, etc)"
+	@echo "${YELLOW}make brew-extra${NC}               brew git-delta, batcat"
 	@echo
 	@echo "${YELLOW}make gpg-gen${NC}                  gpg generate"
 	@echo "${YELLOW}make gpg-list${NC}                 gpg list"
 	@echo "${YELLOW}make dotfiles-git${NC}             after gpg generation run zsh git script"
-	@echo
-	@echo "${YELLOW}make brew-extra${NC}               brew asdf, git-delta, batcat"
-	@echo "${YELLOW}make brew-terminals${NC}           brew terminals"
 	@echo
 	@echo "${RED}Install Shell integration${NC}     setup shell integration - iTerm2 -> Install Shell Integration"
 	@echo "${RED}Install tmux integration${NC}      change setting to open TMUX windows in native tabs: General -> TMUX -> dropdown: Native Tabs in new window"
@@ -272,8 +263,6 @@ usage:
 	@echo "${YELLOW}make dotfiles${NC}                 IF HAVENT done already, pull dotfiles"
 	@echo "${YELLOW}make dotfiles-install${NC}         zsh install.sh"
 	@echo
-	@echo "${YELLOW}make asdf-install${NC}             install ASDF package manager"
-	@echo "${YELLOW}make asdf-ruby${NC}                install Ruby via asdf"
 	@echo "${YELLOW}make ruby-gem-essentials${NC}      install Ruby essential gems"
 	@echo
 	@echo "${YELLOW}make readmore${NC}                 further options tweaks and scripts"

@@ -1,3 +1,16 @@
+# Initialize direnv before Powerlevel10k instant prompt to avoid console output issues
+eval "$(direnv hook zsh)"
+export DIRENV_LOG_FORMAT=
+
+# CI shortcuts to see WebUI
+export WORK_ORG=marketplacer
+buildkite () {
+  open "https://buildkite.com/${WORK_ORG}/$(basename $PWD)"
+}
+semaphore () {
+  open "https://${WORK_ORG}.semaphoreci.com/projects/$(basename $PWD)"
+}
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -99,4 +112,7 @@ iterm2_print_user_vars() {
   iterm2_set_user_var gitBranch $((git branch 2> /dev/null) | grep \* | cut -c3-)
   iterm2_set_user_var currentDirectory $(basename $(pwd))
 }
+
+# Load local environment variables (untracked)
+[[ -f "$HOME/code/dotfiles/.env.local" ]] && source "$HOME/code/dotfiles/.env.local"
 

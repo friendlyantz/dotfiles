@@ -86,9 +86,9 @@
 
 # keep this at the end, dir should end with '/'
 [includeIf "gitdir/i:~/code/"]
-    path = /Users/friendlyantz/.gitconfig-generic
+    path = ~/.gitconfig-generic
 [includeIf "gitdir/i:~/code/work/"]
-    path = /Users/friendlyantz/code/work/.gitconfig
+    path = ~/code/work/.gitconfig
 [init]
 	defaultBranch = master
 [maintenance]

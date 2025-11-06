@@ -34,7 +34,15 @@ email = "70934030+friendlyantz@users.noreply.github.com"
 
 [ui]
 default-command = "log"
-paginate = "never"
+merge-editor = "code --wait --merge $left $right $base $output"
+
+# paginate = "never"
+pager = "delta"
+diff-formatter = ":git"
+
+[merge-tools.delta]
+diff-args = ["--color-only", "$left", "$right"]
+
 
 [signing]
 behavior = "own"

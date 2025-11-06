@@ -63,6 +63,9 @@ export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export GPG_TTY=$TTY
 
+# GitHub token for API access (used by mise, etc.)
+export GITHUB_TOKEN=$(gh auth token 2>/dev/null || echo "")
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
@@ -116,3 +119,4 @@ iterm2_print_user_vars() {
 # Load local environment variables (untracked)
 [[ -f "$HOME/code/dotfiles/.env.local" ]] && source "$HOME/code/dotfiles/.env.local"
 
+export PATH="/opt/homebrew/opt/mysql@8.0/bin:$PATH"

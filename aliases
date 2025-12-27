@@ -19,7 +19,7 @@ alias clisuggest="gh copilot suggest"
 
 # Ruby
 alias s="bundle exec rspec"
-alias ffs="bundle exec rspec --fail-fast"
+alias ffs="bundle exec rspec --fail-fast --order defined"
 alias sm='bundle exec rspec $(git ls-files --modified --others spec)'
 alias be="bundle exec"
 alias hl="HEADLESS=true"

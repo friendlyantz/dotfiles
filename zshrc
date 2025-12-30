@@ -1,7 +1,3 @@
-# Initialize direnv before Powerlevel10k instant prompt to avoid console output issues
-eval "$(direnv hook zsh)"
-export DIRENV_LOG_FORMAT=
-
 # CI shortcuts to see WebUI
 export WORK_ORG=marketplacer
 buildkite () {
@@ -124,3 +120,4 @@ iterm2_print_user_vars() {
 [[ -f "$HOME/code/dotfiles/.env.local" ]] && source "$HOME/code/dotfiles/.env.local"
 
 export PATH="/opt/homebrew/opt/mysql@8.0/bin:$PATH"
+

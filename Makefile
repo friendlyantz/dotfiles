@@ -31,6 +31,8 @@ brew-essentials:
 	brew upgrade jq || brew install jq
 	brew upgrade openssl || brew install openssl
 	brew upgrade coreutils || brew install coreutils
+	brew upgrade --cask iterm2 || brew install --cask iterm2
+	brew upgrade --cask wezterm || brew install --cask wezterm
 
 .PHONY: brew-extra
 brew-extra:
@@ -39,37 +41,39 @@ brew-extra:
 	brew upgrade gpg-suite-no-mail || brew install --cask gpg-suite-no-mail
 	brew upgrade git-delta || brew install git-delta
 	brew upgrade ripgrep || brew install ripgrep
-	brew install fd
+	brew upgrade fd || brew install fd
 	brew upgrade btop || brew install btop
-	brew install atuin
+	brew upgrade atuin || brew install atuin
 	brew upgrade openssh || brew install openssh
-	brew install nmap
-	brew install exercism
-	brew install --cask veracrypt
-	brew install sshuttle
-	brew install zellij
-	brew install hashcat
-	brew install speedtest-cli
-	brew install --cask vlc
-	brew install --cask betterdisplay
-	brew install --cask menumeters
-	brew install stats
-
-.PHONY: brew-imgcat
-brew-imgcat:
+	brew upgrade nmap || brew install nmap
+	brew upgrade exercism || brew install exercism
+	brew upgrade --cask veracrypt || brew install --cask veracrypt
+	brew upgrade sshuttle || brew install sshuttle
+	brew upgrade zellij || brew install zellij
+	brew upgrade hashcat || brew install hashcat
+	brew upgrade speedtest-cli || brew install speedtest-cli
+	brew upgrade --cask vlc || brew install --cask vlc
+	brew upgrade --cask betterdisplay || brew install --cask betterdisplay
+	brew upgrade imagemagick || brew install imagemagick
+# either menumeters or stats
+# 	brew upgrade --cask menumeters || brew install --cask menumeters
+	brew upgrade stats || brew install stats
+	brew upgrade --cask betterdisplay || brew install --cask betterdisplay
+	brew upgrade --cask obsidian || brew install --cask obsidian
+# firewall for Mac
+	brew upgrade --cask lulu || brew install --cask lulu 
 	brew update eddieantonio/eddieantonio/imgcat || brew install eddieantonio/eddieantonio/imgcat
 
 .PHONY: brew-browsers
 brew-browsers:
-	brew install --cask firefox
-	brew install --cask google-chrome
-	brew install --cask brave-browser
-	brew install --cask tor-browser
+	brew upgrade --cask firefox || brew install --cask firefox
+	brew upgrade --cask google-chrome || brew install --cask google-chrome
+	brew upgrade --cask brave-browser || brew install --cask brave-browser
+	brew upgrade --cask tor-browser || brew install --cask tor-browser
 
 .PHONY: brew-terminals
 brew-terminals:
-	brew install --cask iterm2
-	brew install --cask wezterm
+	brew upgrade --cask iterm2 || brew install --cask iterm2
 
 .PHONY: brew-fzf
 brew-fzf:
@@ -79,68 +83,52 @@ brew-fzf:
 
 .PHONY: brew-neovim
 brew-neovim:
-	brew install neovim
-	brew install jesseduffield/lazygit/lazygit
+	brew upgrade neovim || brew install neovim
+	brew upgrade jesseduffield/lazygit/lazygit || brew install jesseduffield/lazygit/lazygit
 
 .PHONY: brew-vscode
 brew-vscode:
-	brew install --cask visual-studio-code
+	brew upgrade --cask visual-studio-code || brew install --cask visual-studio-code
 	@echo
 	@echo "run ${YELLOW}code${NC} to check if VS code was installed correctly"
 
 .PHONY: brew-discord
 brew-discord:
-	brew install --cask discord
+	brew upgrade --cask discord || brew install --cask discord
 
 .PHONY: brew-tuple
 brew-tuple:
-	brew install --cask tuple
+	brew upgrade --cask tuple || brew install --cask tuple
 
 .PHONY: brew-zoom
 brew-zoom:
-	brew install --cask zoom
+	brew upgrade --cask zoom || brew install --cask zoom
 
 .PHONY: brew-messengers
 brew-messengers:
-	brew install --cask slack
-	brew install --cask signal
-	brew install --cask telegram
+	brew upgrade --cask slack || brew install --cask slack
+	brew upgrade --cask signal || brew install --cask signal
+	brew upgrade --cask telegram || brew install --cask telegram
 
 .PHONY: brew-clouddrives
 brew-clouddrives:
-	brew install --cask nextcloud
-	brew install --cask kdrive
-
-.PHONY: brew-obsidian
-brew-obsidian:
-	brew install --cask obsidian
+	brew upgrade --cask nextcloud || brew install --cask nextcloud
+	brew upgrade --cask kdrive || brew install --cask kdrive
 
 .PHONY: brew-spotify
 brew-spotify:
-	brew install --cask spotify
-
-.PHONY: brew-betterdisplay
-brew-betterdisplay:
-	brew install --cask betterdisplay
-
-.PHONY: brew-menumeters
-brew-menumeters:
-	brew install --cask menumeters
+	brew upgrade --cask spotify || brew install --cask spotify
 
 .PHONY: brew-prusaslicer
 brew-prusaslicer:
-	brew install --cask prusaslicer
+	brew upgrade --cask prusaslicer || brew install --cask prusaslicer
 
 .PHONY: brew-betaflight
 brew-betaflight:
-	brew install --cask betaflight-configurator
+	brew upgrade --cask betaflight-configurator || brew install --cask betaflight-configurator
 
 .PHONY: brew-apps
 brew-apps: brew-discord brew-tuple brew-zoom brew-messengers brew-clouddrives brew-obsidian brew-spotify brew-prusaslicer brew-betaflight
-
-.PHONY: install-kitty-terminal
-install-kitty-terminal:
-	curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
 
 .PHONY: zsh
 zsh:
@@ -227,11 +215,9 @@ usage:
 	@echo
 	@echo "${YELLOW}make brew-install${NC}             install brew"
 	@echo
-	@echo "${YELLOW}make brew-terminals${NC}           brew terminals"
-	@echo "${YELLOW}make install-kitty-terminal${NC}   install kitty terminal"
 	@echo "${YELLOW}make brew-browsers${NC}            brew web-browsers: FF, Chrome, Brace"
-	@echo "${YELLOW}make brew-essentials${NC}          brew essential libraries(jq, git, openssl, etc)"
-	@echo "${YELLOW}make brew-extra${NC}               brew git-delta, batcat"
+	@echo "${YELLOW}make brew-essentials${NC}          brew essential tools(jq, git, openssl, etc)"
+	@echo "${YELLOW}make brew-extra${NC}               brew usefull tools"
 	@echo
 	@echo "${YELLOW}make gpg-gen${NC}                  gpg generate"
 	@echo "${YELLOW}make gpg-list${NC}                 gpg list"
@@ -253,10 +239,8 @@ usage:
 	@echo "${YELLOW}make brew-zoom${NC}                brew zoom"
 	@echo "${YELLOW}make brew-messengers${NC}          brew messengers: Slack, Signal, Telegram"
 	@echo "${YELLOW}make brew-clouddrives${NC}         brew cloud drives: NextCloud, kDrive"
-	@echo "${YELLOW}make brew-obsidian${NC}            brew Obsidian"
 	@echo "${YELLOW}make brew-spotify${NC}             brew Spotify"
 	@echo "${YELLOW}make brew-prusaslicer${NC}         brew Prusa Slicer for 3D printing"
-	@echo "${YELLOW}make brew-betterdisplay${NC}       brew BetterDiplay.pro fo managing ext screen res"
 	@echo
 	@echo "${YELLOW}make gh-cli${NC}                   login GitHub CLI"
 	@echo

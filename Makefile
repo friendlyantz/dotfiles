@@ -55,9 +55,9 @@ brew-extra:
 	brew upgrade --cask vlc || brew install --cask vlc
 	brew upgrade --cask betterdisplay || brew install --cask betterdisplay
 	brew upgrade imagemagick || brew install imagemagick
-# either menumeters or stats
-# 	brew upgrade --cask menumeters || brew install --cask menumeters
-	brew upgrade stats || brew install stats
+# either menumeters or stats(menumeeters seems more stable)
+	brew upgrade --cask menumeters || brew install --cask menumeters
+# 	brew upgrade stats || brew install stats
 	brew upgrade --cask betterdisplay || brew install --cask betterdisplay
 	brew upgrade --cask obsidian || brew install --cask obsidian
 # firewall for Mac

@@ -2,13 +2,13 @@
 jj = "latest"
 usage = "latest"
 
-node = "latest"
-yarn = "latest"
+# node = "latest"
+# yarn = "latest"
 
-ruby = "latest"
+# ruby = "latest"
 
 python = "latest"
-go = "latest"
+# go = "latest"
 
 [settings]
 idiomatic_version_file_enable_tools = []

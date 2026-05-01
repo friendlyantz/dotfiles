@@ -25,14 +25,17 @@ brew-install:
 brew-essentials:
 	brew upgrade git || brew install git
 	brew upgrade gh || brew install gh
-	gh extension install github/gh-copilot
+	# gh extension install github/gh-copilot
 	brew upgrade wget || brew install wget
 	brew upgrade imagemagick || brew install imagemagick
 	brew upgrade jq || brew install jq
 	brew upgrade openssl || brew install openssl
 	brew upgrade coreutils || brew install coreutils
 	brew upgrade --cask iterm2 || brew install --cask iterm2
-	brew upgrade --cask wezterm || brew install --cask wezterm
+	brew upgrade libyaml || brew install libyaml
+	brew upgrade tmux || brew install tmux
+	brew upgrade pygments || brew install pygments # terminal colours
+	# brew upgrade --cask wezterm || brew install --cask wezterm
 
 .PHONY: brew-extra
 brew-extra:
@@ -47,22 +50,21 @@ brew-extra:
 	brew upgrade openssh || brew install openssh
 	brew upgrade nmap || brew install nmap
 	brew upgrade exercism || brew install exercism
-	brew upgrade --cask veracrypt || brew install --cask veracrypt
+# 	brew upgrade --cask veracrypt || brew install --cask veracrypt
 	brew upgrade sshuttle || brew install sshuttle
 	brew upgrade zellij || brew install zellij
-	brew upgrade hashcat || brew install hashcat
+# 	brew upgrade hashcat || brew install hashcat
 	brew upgrade speedtest-cli || brew install speedtest-cli
-	brew upgrade --cask vlc || brew install --cask vlc
-	brew upgrade --cask betterdisplay || brew install --cask betterdisplay
+# 	brew upgrade --cask vlc || brew install --cask vlc
 	brew upgrade imagemagick || brew install imagemagick
 # either menumeters or stats(menumeeters seems more stable)
 	brew upgrade --cask menumeters || brew install --cask menumeters
 # 	brew upgrade stats || brew install stats
 	brew upgrade --cask betterdisplay || brew install --cask betterdisplay
 	brew upgrade --cask obsidian || brew install --cask obsidian
-# firewall for Mac
-	brew upgrade --cask lulu || brew install --cask lulu 
-	brew update eddieantonio/eddieantonio/imgcat || brew install eddieantonio/eddieantonio/imgcat
+# Lulu - firewall for Mac
+# 	brew upgrade --cask lulu || brew install --cask lulu 
+# 	brew update eddieantonio/eddieantonio/imgcat || brew install eddieantonio/eddieantonio/imgcat
 
 .PHONY: brew-browsers
 brew-browsers:
@@ -78,8 +80,6 @@ brew-terminals:
 .PHONY: brew-fzf
 brew-fzf:
 	brew upgrade fzf || brew install fzf
-	# To install useful key bindings and fuzzy completion:
-	source <(fzf --zsh)
 
 .PHONY: brew-neovim
 brew-neovim:
@@ -130,8 +130,8 @@ brew-betaflight:
 .PHONY: brew-apps
 brew-apps: brew-discord brew-tuple brew-zoom brew-messengers brew-clouddrives brew-obsidian brew-spotify brew-prusaslicer brew-betaflight
 
-.PHONY: zsh
-zsh:
+.PHONY: ohmyzsh
+ohmyzsh:
 	@sh -c "$$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 .PHONY: zsh-syntax-highlighting
@@ -140,7 +140,7 @@ zsh-syntax-highlighting:
 
 .PHONY: zsh-powershell10k
 zsh-powershell10k:
-	git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+	git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"	
 
 .PHONY: gh-cli
 gh-cli:
@@ -160,9 +160,9 @@ gpg-gen:
 gpg-list:
 	gpg --list-secret-keys --keyid-format=long
 
-.PHONY: dotfiles-git
-dotfiles-git:
-	zsh git_setup.sh
+.PHONY: mise
+mise:
+	curl https://mise.run | sh
 
 .PHONY: ruby-gem-essentials
 ruby-gem-essentials:
@@ -194,6 +194,24 @@ mac-settings:
 	defaults write com.apple.dock mouse-over-hilite-stack -bool true
 	# Set the icon size of Dock items to 36 pixels
 	defaults write com.apple.dock tilesize -int 36
+	# FINDER quality of life
+	# Show all extensions, status bar, path bar
+	defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+	defaults write com.apple.finder ShowStatusBar -bool true
+	defaults write com.apple.finder ShowPathbar -bool true
+	# Show full POSIX path in window title
+	defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
+	# Keep folders on top when sorting by name
+	defaults write com.apple.finder _FXSortFoldersFirst -bool true
+	# Search current folder by default
+	defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
+	# Don’t warn when changing file extensions
+	defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
+	# Don’t write .DS_Store on network/USB volumes
+	defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+	defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
+	# Show ~/Library
+	chflags nohidden ~/Library && xattr -d com.apple.FinderInfo ~/Library 2>/dev/null || true
 
 
 .PHONY: usage
@@ -209,28 +227,48 @@ usage:
 	@echo
 	@echo "${YELLOW}make xcode{NC}                     install xcode"
 	@echo
-	@echo "${YELLOW}make zsh${NC}                      install ZSH"
+	@echo "${YELLOW}make ohmyzsh${NC}                  install ZSH"
 	@echo "${YELLOW}make zsh-syntax-highlighting${NC}  install ZSH syntax-highlighting"
+
+	@echo "get the fonts and RTFM powershell10k https://github.com/romkatv/powerlevel10k#getting-started"
 	@echo "${YELLOW}make zsh-powershell10k${NC}        zsh-powershell10k(ensure to use UNICODE) OR to retry: 'p10k configure'"
+	@echo
+	@echo "${YELLOW}make dotfiles-install${NC}         zsh install.sh"
 	@echo
 	@echo "${YELLOW}make brew-install${NC}             install brew"
 	@echo
 	@echo "${YELLOW}make brew-browsers${NC}            brew web-browsers: FF, Chrome, Brace"
 	@echo "${YELLOW}make brew-essentials${NC}          brew essential tools(jq, git, openssl, etc)"
-	@echo "${YELLOW}make brew-extra${NC}               brew usefull tools"
-	@echo
-	@echo "${YELLOW}make gpg-gen${NC}                  gpg generate"
-	@echo "${YELLOW}make gpg-list${NC}                 gpg list"
-	@echo "${YELLOW}make dotfiles-git${NC}             after gpg generation run zsh git script"
 	@echo
 	@echo "${RED}Install Shell integration${NC}     setup shell integration - iTerm2 -> Install Shell Integration"
 	@echo "${RED}Install tmux integration${NC}      change setting to open TMUX windows in native tabs: General -> TMUX -> dropdown: Native Tabs in new window"
-	@echo "${RED}add script to enable iterm command click on files to open in your editor${NC}      refer Ruby script"
-	@echo "${RED}change Profile -> General -> Working directory : Reuse previous session's directory${NC}"
+	@echo "${RED}add script to enable iterm command click on files to open in your editor${NC}      refer Ruby script or for iterm2 you can do it without script via semantic history"
+	@echo "${RED}change Profiles -> General -> Working directory : Reuse previous session's directory${NC}"
+	@echo "${RED}change Profiles -> Keys -> Left Opt key change to 'Esc+' to allow using it as 'Alt'${NC}"
+	@echo "${RED}change Profiles -> General -> Badge: '\(user.currentDirectory) --> \(user.gitBranch)' ${NC}"
+	@echo
+	@echo "${YELLOW}make brew-neovim${NC}              brew neovim"
+	@echo "open https://www.lazyvim.org/installation"
 	@echo
 	@echo "${YELLOW}make brew-fzf${NC}                 brew fuzzy reverse search of commands"
-	@echo "${YELLOW}make brew-neovim${NC}              brew neovim"
+	@echo "# To install useful key bindings and fuzzy completion:"
+	@echo "source <(fzf --zsh)"
+	@echo
 	@echo "${YELLOW}make brew-vscode${NC}              brew vscode"
+	@echo
+	@echo "${YELLOW}make gpg-gen${NC}                  gpg generate"
+	@echo "${YELLOW}make gpg-list${NC}                 gpg list"
+	@echo
+	@echo "${YELLOW}make gh-cli${NC}                   login GitHub CLI"
+	@echo
+	@echo "${YELLOW}make readmore${NC}                 further options tweaks and scripts"
+	@echo "${YELLOW}make mac-settings${NC}             sane mac settings scripts"
+	@echo
+	@echo "${YELLOW}make mise${NC}                     download mise"
+	@echo
+	@echo "${YELLOW}make ruby-gem-essentials${NC}      install Ruby essential gems"
+	@echo
+	@echo "${YELLOW}make brew-extra${NC}               brew optional usefull tools"
 	@echo
 	@echo "${YELLOW}make brew-apps${NC}                brew below apps"
 	@echo
@@ -241,15 +279,5 @@ usage:
 	@echo "${YELLOW}make brew-clouddrives${NC}         brew cloud drives: NextCloud, kDrive"
 	@echo "${YELLOW}make brew-spotify${NC}             brew Spotify"
 	@echo "${YELLOW}make brew-prusaslicer${NC}         brew Prusa Slicer for 3D printing"
-	@echo
-	@echo "${YELLOW}make gh-cli${NC}                   login GitHub CLI"
-	@echo
-	@echo "${YELLOW}make dotfiles${NC}                 IF HAVENT done already, pull dotfiles"
-	@echo "${YELLOW}make dotfiles-install${NC}         zsh install.sh"
-	@echo
-	@echo "${YELLOW}make ruby-gem-essentials${NC}      install Ruby essential gems"
-	@echo
-	@echo "${YELLOW}make readmore${NC}                 further options tweaks and scripts"
-	@echo "${YELLOW}make mac-settings${NC}             sane mac settings scripts"
 	@echo
 

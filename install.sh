@@ -12,7 +12,7 @@ backup() {
 for name in *; do
   if [ ! -d "$name" ]; then
     target="$HOME/.$name"
-    if [[ ! "$name" =~ '\.sh$' ]] && [ "$name" != 'README.md' ] && [[ ! "$name" =~ '\.config$' ]]; then
+    if [[ ! "$name" =~ '\.sh$' ]] && [ "$name" != 'README.md' ] && [[ ! "$name" =~ '\.config$' ]]; then # filter OUT .sh, README, etc, the rest gets symlinked
       backup $target
 
       if [ ! -e "$target" ]; then

@@ -1,5 +1,12 @@
-# CI shortcuts to see WebUI
-export WORK_ORG=marketplacer
+# Initialize direnv before Powerlevel10k instant prompt to avoid console output issues
+eval "$(direnv hook zsh)"
+export DIRENV_LOG_FORMAT=
+# direnv hook for automatic environment loading
+# export PATH="$HOME/.local/bin:$PATH"
+
+
+export WORK_ORG=cultureamp
+
 buildkite () {
   open "https://buildkite.com/${WORK_ORG}/$(basename $PWD)"
 }
@@ -111,6 +118,8 @@ eval "$(atuin init zsh)"
 DISABLE_AUTO_TITLE="true" # To allow tmux to show the name of tabs in zsh for iTerm2export BUNDLER_EDITOR="subl $@ >/dev/null 2>&1 -a"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+# to user iTerm user vars (i.e. in badges) '\(user.currentDirectory) --> \(user.gitBranch)'
 iterm2_print_user_vars() {
   iterm2_set_user_var gitBranch $((git branch 2> /dev/null) | grep \* | cut -c3-)
   iterm2_set_user_var currentDirectory $(basename $(pwd))
@@ -121,3 +130,6 @@ iterm2_print_user_vars() {
 
 export PATH="/opt/homebrew/opt/mysql@8.0/bin:$PATH"
 
+
+# The next line was added by hotel, leave it at the bottom of this file
+source /Users/anton.panteleev/.config/hotel/config.zsh
